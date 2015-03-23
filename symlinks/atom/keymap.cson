@@ -1,0 +1,17 @@
+'.workspace':
+  'cmd-t': 'application:new-file'
+  'cmd-n': 'application:new-window'
+  'cmd-:': 'command-palette:toggle'
+  'cmd-o': 'fuzzy-finder:toggle-file-finder'
+  'cmd-shift-O': 'symbols-view:toggle-file-symbols'
+  'ctrl-s': 'tree-view:toggle-focus'
+  'ctrl-shift-s': 'tree-view:toggle'
+
+'.workspace .editor:not([mini])':
+  'alt-up': 'emmet:increment-number-by-1'
+  'alt-down': 'emmet:decrement-number-by-1'
+  'alt-cmd-up': 'resize-panes:enlarge-active-pane'
+  'alt-cmd-down': 'resize-panes:shrink-active-pane'
+
+'.workspace .editor[data-grammar~="html"]:not([mini])':
+  'tab': 'emmet:expand-abbreviation-with-tab'

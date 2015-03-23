@@ -1,0 +1,75 @@
+"*":
+  editor:
+    invisibles: {}
+    showIndentGuide: true
+    showInvisibles: true
+    tabLength: 4
+    preferredLineLength: 100
+    fontSize: 14
+  core:
+    disabledPackages: [
+      "autosave"
+      "bookmarks"
+      "spell-check"
+      "linter-jshint"
+    ]
+    themes: [
+      "atom-dark-ui"
+      "base16-tomorrow-dark-theme"
+    ]
+    projectHome: "~/Development"
+  emmet: {}
+  "exception-reporting":
+    userId: "595df643-3b5f-c092-bb11-3c48ca6732d7"
+  welcome:
+    showOnStartup: false
+  "atom-alignment": {}
+  "atom-color-highlight": {}
+  "autocomplete-plus":
+    confirmCompletion: "enter"
+  "atom-beautify":
+    _analyticsUserId: "83e3e528-5a8b-4752-8148-22d2458154ad"
+  "highlight-selected": {}
+  "atom-lint": {}
+  "recent-files":
+    updated: false
+  "remember-session":
+    x: 0
+    y: 22
+    width: 720
+    height: 874
+  docblockr: {}
+  "todo-show":
+    ignoreThesePaths: [
+      "/node_modules/"
+      "/dist/"
+      "/**.md"
+    ]
+    findTheseRegexes: [
+      "TODO"
+      "/TODO:?(.+$)/g"
+      "FIXME"
+      "/FIXME:?(.+$)/g"
+      "XXX"
+      "/XXX:?(.+$)/g"
+    ]
+  "spell-check": {}
+  "file-icons":
+    coloured: false
+  linter:
+    showHighlighting: false
+    statusBar: "Show error if the cursor is in range"
+    showErrorInline: false
+  "linter-jshint": {}
+  "symbols-tree-view": {}
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false
+  Ruler:
+    enabled: true
+    position: 80
+  "linter-jsonlint": {}
+  "markdown-preview": {}
+  "linter-eslint": {}
+".json.source":
+  editor:
+    preferredLineLength: 100

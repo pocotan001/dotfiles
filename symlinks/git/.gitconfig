@@ -1,0 +1,5 @@
+[user]
+	name = Hayato Mizuno
+	email = pocotan001@gmail.com
+[core]
+	excludesfile = ~/.gitignore
