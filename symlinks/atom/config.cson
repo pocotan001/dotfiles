@@ -71,8 +71,8 @@
   "markdown-preview": {}
   "linter-eslint": {}
   "go-plus":
+    goInstallation: "$GOROOT/bin/go"
     goPath: "$GOPATH"
-    goInstallation: "$GOROOT"
 ".json.source":
   editor:
     preferredLineLength: 100
