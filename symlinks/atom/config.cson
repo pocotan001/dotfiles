@@ -70,6 +70,9 @@
   "linter-jsonlint": {}
   "markdown-preview": {}
   "linter-eslint": {}
+  "go-plus":
+    goPath: "$GOPATH"
+    goInstallation: "$GOROOT"
 ".json.source":
   editor:
     preferredLineLength: 100
