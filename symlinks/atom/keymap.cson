@@ -4,8 +4,7 @@
   'cmd-:': 'command-palette:toggle'
   'cmd-o': 'fuzzy-finder:toggle-file-finder'
   'cmd-shift-O': 'symbols-view:toggle-file-symbols'
-  'ctrl-s': 'tree-view:toggle-focus'
-  'ctrl-shift-s': 'tree-view:toggle'
+  'ctrl-s': 'tree-view:toggle'
 
 '.workspace .editor:not([mini])':
   'alt-up': 'emmet:increment-number-by-1'
