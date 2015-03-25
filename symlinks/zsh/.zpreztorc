@@ -29,12 +29,14 @@ zstyle ':prezto:load' pmodule \
   'editor' \
   'environment' \
   'git' \
+  'node' \
   'history' \
   'prompt' \
   'spectrum' \
   'syntax-highlighting' \
   'terminal' \
   'tmux' \
+  'homebrew' \
   'utility'
 
 #
@@ -120,13 +122,13 @@ zstyle ':prezto:module:prompt' theme 'kylewest'
 
 # Set syntax highlighters.
 # By default, only the main highlighter is enabled.
-# zstyle ':prezto:module:syntax-highlighting' highlighters \
-#   'main' \
-#   'brackets' \
-#   'pattern' \
-#   'cursor' \
-#   'root'
-#
+zstyle ':prezto:module:syntax-highlighting' highlighters \
+  'main' \
+  'brackets' \
+  'pattern' \
+  'cursor' \
+  'root'
+
 # Set syntax highlighting styles.
 # zstyle ':prezto:module:syntax-highlighting' styles \
 #   'builtin' 'bg=blue' \

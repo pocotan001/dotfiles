@@ -74,6 +74,13 @@ fi
 TMPPREFIX="${TMPDIR%/}/zsh"
 
 #
+# Node
+#
+
+export NVM_DIR=$HOME/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
+#
 # Golang
 #
 
