@@ -72,8 +72,7 @@
   "linter-eslint": {}
   "go-plus":
     goInstallation: "$GOROOT/bin/go"
-    goPath: "~/.go"
-    formatOnSave: false
+    goPath: "$GOPATH"
 ".json.source":
   editor:
     preferredLineLength: 100
