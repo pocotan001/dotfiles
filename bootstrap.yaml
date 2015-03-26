@@ -37,6 +37,7 @@ formulas:
     - "mercurial"
     - "ngrok"
     - "node"
+    - "nvm"
     - "peco"
     - "sl"
     - "the_silver_searcher"

@@ -12,15 +12,7 @@ fi
 
 # Customize to your needs...
 
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home
-
-alias gs='/Users/a13073/Dropbox/Development/ca/girlstalk-server/'
-
-#
-# Atom
-#
-
-alias a="open -a '/Applications/Atom.app'"
+alias gs='~/Dropbox/Development/ca/girlstalk-server/'
 
 #
 # highlight

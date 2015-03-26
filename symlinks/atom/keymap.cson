@@ -2,6 +2,8 @@
   'cmd-t': 'application:new-file'
   'cmd-n': 'application:new-window'
   'cmd-:': 'command-palette:toggle'
+  'cmd-alt-:': 'project-manager:toggle'
+  'cmd-alt-*': 'git-projects:toggle'
   'cmd-o': 'fuzzy-finder:toggle-file-finder'
   'cmd-shift-O': 'symbols-view:toggle-file-symbols'
   'ctrl-s': 'tree-view:toggle'

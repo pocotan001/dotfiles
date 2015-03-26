@@ -73,6 +73,9 @@
   "go-plus":
     goInstallation: "$GOROOT/bin/go"
     goPath: "$GOPATH"
+    formatOnSave: false
+  "git-projects":
+    rootPath: "~/Development"
 ".json.source":
   editor:
     preferredLineLength: 100

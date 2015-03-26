@@ -74,9 +74,22 @@ fi
 TMPPREFIX="${TMPDIR%/}/zsh"
 
 #
+# Node
+#
+
+export NVM_DIR=$HOME/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
+#
 # Golang
 #
 
 export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+#
+# JAVA
+#
+
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home
