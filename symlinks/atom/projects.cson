@@ -1,0 +1,10 @@
+'.cider':
+  'title': '.cider'
+  'paths': [
+    '~/.cider'
+  ]
+'seed':
+  'title': 'seed'
+  'paths': [
+    '~/Dropbox/Development/seed'
+  ]
