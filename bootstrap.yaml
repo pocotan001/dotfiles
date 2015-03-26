@@ -8,6 +8,7 @@ casks:
     - "alfred"
     - "appcleaner"
     - "atom"
+    - "bartender"
     - "cloudup"
     - "dropbox"
     - "firefox"

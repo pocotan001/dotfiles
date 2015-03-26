@@ -4,7 +4,6 @@ mkdir ~/.nvm
 source ~/.zprofile
 
 nvm install stable
-nvm install iojs
 nvm alias default stable
 
 npm install -g browser-sync
