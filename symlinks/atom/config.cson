@@ -31,13 +31,6 @@
     _analyticsUserId: "83e3e528-5a8b-4752-8148-22d2458154ad"
   "highlight-selected": {}
   "atom-lint": {}
-  "recent-files":
-    updated: false
-  "remember-session":
-    x: 0
-    y: 22
-    width: 720
-    height: 874
   docblockr: {}
   "todo-show":
     ignoreThesePaths: [
@@ -76,6 +69,7 @@
     formatOnSave: false
   "git-projects":
     rootPath: "~/Development"
+  "project-palette-finder": {}
 ".json.source":
   editor:
     preferredLineLength: 100
