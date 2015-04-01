@@ -75,11 +75,6 @@
   "project-palette-finder": {}
   tabs:
     showIcons: true
-  "tree-view":
-    hideVcsIgnoredFiles: false
-    hideIgnoredNames: false
-    showOnRightSide: false
-    sortFoldersBeforeFiles: true
 ".json.source":
   editor:
     preferredLineLength: 100

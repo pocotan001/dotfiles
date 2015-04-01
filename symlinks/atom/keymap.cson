@@ -6,7 +6,8 @@
   'cmd-alt-*': 'git-projects:toggle'
   'cmd-o': 'fuzzy-finder:toggle-file-finder'
   'cmd-shift-O': 'symbols-view:toggle-file-symbols'
-  'ctrl-s': 'tree-view:toggle'
+  'ctrl s': 'tree-view:toggle'
+  'ctrl-s': 'tree-view:toggle-focus'
 
 '.workspace .editor:not([mini])':
   'alt-up': 'emmet:increment-number-by-1'
