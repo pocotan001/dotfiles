@@ -3,3 +3,4 @@
 	email = pocotan001@gmail.com
 [core]
 	excludesfile = ~/.gitignore
+	editor = vim

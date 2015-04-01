@@ -12,6 +12,7 @@
       "bookmarks"
       "spell-check"
       "linter-jshint"
+      "linter-csslint"
     ]
     themes: [
       "atom-dark-ui"

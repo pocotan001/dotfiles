@@ -13,6 +13,7 @@
   'alt-down': 'emmet:decrement-number-by-1'
   'alt-cmd-up': 'resize-panes:enlarge-active-pane'
   'alt-cmd-down': 'resize-panes:shrink-active-pane'
+  'ctrl-q': 'expand-selection-to-quotes:toggle'
 
 '.workspace .editor[data-grammar~="html"]:not([mini])':
   'tab': 'emmet:expand-abbreviation-with-tab'
