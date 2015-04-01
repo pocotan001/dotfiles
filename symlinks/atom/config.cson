@@ -13,6 +13,8 @@
       "spell-check"
       "linter-jshint"
       "linter-csslint"
+      "tabs"
+      "tree-view"
     ]
     themes: [
       "atom-dark-ui"
@@ -71,6 +73,13 @@
   "git-projects":
     rootPath: "~/Development"
   "project-palette-finder": {}
+  tabs:
+    showIcons: true
+  "tree-view":
+    hideVcsIgnoredFiles: false
+    hideIgnoredNames: false
+    showOnRightSide: false
+    sortFoldersBeforeFiles: true
 ".json.source":
   editor:
     preferredLineLength: 100
