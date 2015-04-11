@@ -9,4 +9,5 @@ nvm alias default stable
 npm install -g browser-sync
 npm install -g gulp
 npm install -g http-server
+npm install -g npm-check-updates
 npm install -g psi
