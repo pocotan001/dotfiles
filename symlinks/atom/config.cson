@@ -13,6 +13,7 @@
       "spell-check"
       "linter-jshint"
       "linter-csslint"
+      "go-plus"
     ]
     themes: [
       "atom-dark-ui"

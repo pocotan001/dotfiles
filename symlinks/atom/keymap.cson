@@ -16,5 +16,8 @@
   'alt-cmd-down': 'resize-panes:shrink-active-pane'
   'ctrl-q': 'expand-selection-to-quotes:toggle'
 
+'atom-text-editor.autocomplete-active:not([mini])':
+  'enter': 'autocomplete-plus:confirm'
+
 '.workspace .editor[data-grammar~="html"]:not([mini])':
   'tab': 'emmet:expand-abbreviation-with-tab'
