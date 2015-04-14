@@ -5,7 +5,7 @@
     showInvisibles: true
     tabLength: 4
     preferredLineLength: 100
-    fontSize: 14
+    fontSize: 13
   core:
     disabledPackages: [
       "autosave"
@@ -14,6 +14,8 @@
       "linter-jshint"
       "linter-csslint"
       "go-plus"
+      "autocomplete"
+      "background-tips"
     ]
     themes: [
       "atom-dark-ui"
