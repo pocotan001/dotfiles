@@ -15,6 +15,7 @@
   'alt-cmd-up': 'resize-panes:enlarge-active-pane'
   'alt-cmd-down': 'resize-panes:shrink-active-pane'
   'ctrl-q': 'expand-selection-to-quotes:toggle'
+  'ctrl-b': 'beautify:beautify-editor'
 
 'atom-text-editor.autocomplete-active:not([mini])':
   'enter': 'autocomplete-plus:confirm'
