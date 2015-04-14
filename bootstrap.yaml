@@ -1,4 +1,6 @@
 after-scripts:
+    - "./scripts/sublime.sh"
+    - "./scripts/node.sh"
     - "./scripts/go.sh"
     - "chflags nohidden ~/Library"
     - "brew linkapps"
@@ -27,6 +29,7 @@ casks:
     - "shiftit"
     - "skype"
     - "steam"
+    - "sublime-text"
     - "tower"
     - "vivaldi"
 

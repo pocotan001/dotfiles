@@ -7,6 +7,7 @@ nvm install stable
 nvm alias default stable
 
 npm install -g browser-sync
+npm install -g eslint
 npm install -g gulp
 npm install -g http-server
 npm install -g npm-check-updates

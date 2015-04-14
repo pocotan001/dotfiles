@@ -1,0 +1,18 @@
+{
+	"color_scheme": "Packages/User/SublimeLinter/Tomorrow-Night (SL).tmTheme",
+	"findreplace_small": true,
+	"font_size": 14,
+	"highlight_line": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"overlay_scroll_bars": "enabled",
+	"show_encoding": true,
+	"show_full_path": true,
+	"show_line_endings": true,
+	"static_modified_tab": true,
+	"tabs_small": true,
+	"theme": "preap.sublime-theme",
+	"trim_trailing_white_space_on_save": true
+}
