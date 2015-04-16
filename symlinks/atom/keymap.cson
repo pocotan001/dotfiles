@@ -8,6 +8,7 @@
   'cmd-shift-O': 'symbols-view:toggle-file-symbols'
   'ctrl s': 'tree-view:toggle'
   'ctrl-s': 'tree-view:toggle-focus'
+  'cmd up up down down left right left right b a': 'asteroids:play'
 
 '.workspace .editor:not([mini])':
   'alt-cmd-up': 'resize-panes:enlarge-active-pane'
