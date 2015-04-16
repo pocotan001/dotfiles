@@ -8,4 +8,4 @@ atom.workspaceView.command "custom:semicolonize", ->
   editorElement = atom.views.getView(editor)
   editor.moveToEndOfLine()
   editor.insertText(";")
-  atom.commands.dispatch(editorElement, 'editor:newline-below')
+  atom.commands.dispatch(editorElement, "editor:newline-below")
