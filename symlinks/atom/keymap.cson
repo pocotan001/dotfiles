@@ -18,6 +18,7 @@
   'alt-cmd-down': 'resize-panes:shrink-active-pane'
   'ctrl-q': 'expand-selection-to-quotes:toggle'
   'ctrl-b': 'beautify:beautify-editor'
+  'shift-enter': 'custom:semicolonize'
 
 'atom-text-editor.autocomplete-active:not([mini])':
   'enter': 'autocomplete-plus:confirm'
