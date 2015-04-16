@@ -1,11 +1,16 @@
 # Make environment variables available to Atom
 process.env.PATH = ["/usr/local/opt/go/libexec/bin", process.env.PATH].join(":")
 
-# Add semi-colon at end of line and return
-# https://discuss.atom.io/t/add-semi-colon-at-end-of-line-and-return/12038
+# Terminates the current line with a semi-colon
+# https://github.com/extrabacon/atom-turbo-javascript/blob/master/lib/turbo-javascript.coffee
 atom.workspaceView.command "custom:semicolonize", ->
-  editor = atom.workspace.getActiveEditor()
-  editorElement = atom.views.getView(editor)
-  editor.moveToEndOfLine()
-  editor.insertText(";")
-  atom.commands.dispatch(editorElement, "editor:newline-below")
+  editor = atom.workspace.activePaneItem
+
+  editor.getCursors().forEach((cursor) ->
+    editor.moveCursorToEndOfLine()
+
+    if !/;\s*$/.test(cursor.getCurrentBufferLine())
+      editor.insertText(';')
+
+    editor.insertNewlineBelow()
+  )

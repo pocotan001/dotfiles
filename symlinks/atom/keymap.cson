@@ -8,14 +8,14 @@
   'cmd-shift-O': 'symbols-view:toggle-file-symbols'
   'ctrl s': 'tree-view:toggle'
   'ctrl-s': 'tree-view:toggle-focus'
-  'alt left': 'window:focus-pane-on-left'
-  'alt right': 'window:focus-pane-on-right'
 
 '.workspace .editor:not([mini])':
-  'alt-up': 'emmet:increment-number-by-1'
-  'alt-down': 'emmet:decrement-number-by-1'
   'alt-cmd-up': 'resize-panes:enlarge-active-pane'
   'alt-cmd-down': 'resize-panes:shrink-active-pane'
+  'alt left': 'window:focus-pane-on-left'
+  'alt right': 'window:focus-pane-on-right'
+  'alt-up': 'emmet:increment-number-by-1'
+  'alt-down': 'emmet:decrement-number-by-1'
   'ctrl-q': 'expand-selection-to-quotes:toggle'
   'ctrl-b': 'beautify:beautify-editor'
   'shift-enter': 'custom:semicolonize'
