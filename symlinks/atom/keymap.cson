@@ -8,6 +8,8 @@
   'cmd-shift-O': 'symbols-view:toggle-file-symbols'
   'ctrl s': 'tree-view:toggle'
   'ctrl-s': 'tree-view:toggle-focus'
+  'alt left': 'window:focus-pane-on-left'
+  'alt right': 'window:focus-pane-on-right'
 
 '.workspace .editor:not([mini])':
   'alt-up': 'emmet:increment-number-by-1'
