@@ -74,6 +74,8 @@
   "git-projects":
     rootPath: "~/Development"
   "project-palette-finder": {}
+  "custom-title":
+    template: "<% if (filePath) { %><%= relativeFilePath %><% } else { %><%= fileName %><% } %>"
 ".json.source":
   editor:
     preferredLineLength: 100
