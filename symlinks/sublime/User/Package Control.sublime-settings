@@ -18,6 +18,7 @@
 		"SublimeCodeIntel",
 		"SublimeLinter",
 		"SublimeLinter-contrib-eslint",
+		"TernJS",
 		"Tomorrow Color Schemes"
 	]
 }
