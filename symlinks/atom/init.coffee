@@ -3,7 +3,7 @@ process.env.PATH = ["/usr/local/opt/go/libexec/bin", process.env.PATH].join(":")
 
 # Terminates the current line with a semi-colon
 # https://github.com/extrabacon/atom-turbo-javascript/blob/master/lib/turbo-javascript.coffee
-atom.workspaceView.command "custom:semicolonize", ->
+atom.workspaceView.command "custom:end-line", ->
   editor = atom.workspace.activePaneItem
 
   editor.getCursors().forEach((cursor) ->
@@ -12,5 +12,5 @@ atom.workspaceView.command "custom:semicolonize", ->
     if !/;\s*$/.test(cursor.getCurrentBufferLine())
       editor.insertText(';')
 
-    editor.insertNewlineBelow()
+    # editor.insertNewlineBelow()
   )

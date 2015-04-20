@@ -12,8 +12,6 @@ fi
 
 # Customize to your needs...
 
-alias gs='~/Dropbox/Development/ca/girlstalk-server/'
-
 #
 # highlight
 #
@@ -46,5 +44,20 @@ function peco-select-history() {
     CURSOR=$#BUFFER
     zle clear-screen
 }
+
 zle -N peco-select-history
 bindkey '^r' peco-select-history
+
+#
+# Gulp
+#
+
+# Completion for gulp
+# https://github.com/gulpjs/gulp/tree/master/completion
+function _gulp_completion() {
+    compls=$(gulp --tasks-simple)
+    completions=(${=compls})
+    compadd -- $completions
+}
+
+compdef _gulp_completion gulp
