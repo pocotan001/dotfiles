@@ -5,9 +5,10 @@
   'cmd-alt-:': 'project-manager:toggle'
   'cmd-alt-*': 'git-projects:toggle'
   'cmd-o': 'fuzzy-finder:toggle-file-finder'
-  'cmd-shift-O': 'symbols-view:toggle-file-symbols'
+  'cmd-O': 'symbols-view:toggle-file-symbols'
   'ctrl s': 'tree-view:toggle'
   'ctrl-s': 'tree-view:toggle-focus'
+  'ctrl-S': 'tree-view:reveal-active-file'
   'cmd up up down down left right left right b a': 'asteroids:play'
 
 '.workspace .editor:not([mini])':

@@ -22,6 +22,7 @@
       "base16-tomorrow-dark-theme"
     ]
     projectHome: "~/Development"
+    followSymlinks: true
   emmet: {}
   "exception-reporting":
     userId: "595df643-3b5f-c092-bb11-3c48ca6732d7"
