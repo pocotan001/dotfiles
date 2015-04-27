@@ -5,7 +5,7 @@
     showInvisibles: true
     tabLength: 4
     preferredLineLength: 100
-    fontSize: 13
+    fontSize: 14
   core:
     disabledPackages: [
       "autosave"
@@ -17,12 +17,12 @@
       "autocomplete"
       "background-tips"
     ]
-    themes: [
-      "atom-dark-ui"
-      "base16-tomorrow-dark-theme"
-    ]
     projectHome: "~/Development"
     followSymlinks: true
+    themes: [
+      "one-dark-ui"
+      "base16-tomorrow-dark-theme"
+    ]
   emmet: {}
   "exception-reporting":
     userId: "595df643-3b5f-c092-bb11-3c48ca6732d7"
@@ -34,6 +34,8 @@
     confirmCompletion: "enter"
   "atom-beautify":
     _analyticsUserId: "83e3e528-5a8b-4752-8148-22d2458154ad"
+    css_newline_between_rules: true
+    css_selector_separator_newline: true
   "highlight-selected": {}
   "atom-lint": {}
   docblockr: {}
@@ -76,8 +78,9 @@
     rootPath: "~/Development"
   "project-palette-finder": {}
   "custom-title":
-    template: "<% if (filePath) { %><%= relativeFilePath %><% } else { %><%= fileName %><% } %>"
+    template: "<% if (filePath) { %><%= relativeFilePath %><% if (projectName) { %> - <%= projectName %><% } %><% if (gitHead) { %> [<%= gitHead %>]<% } %><% } else { %><%= fileName %><% } %>"
   "travis-ci-status": {}
+  react: {}
 ".json.source":
   editor:
     preferredLineLength: 100
