@@ -1,0 +1,7 @@
+{
+	"default_libs": [
+        "browser",
+        "ecma5",
+        "ecma6"
+    ]
+}
