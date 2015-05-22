@@ -19,7 +19,7 @@
   'alt q': 'expand-selection-to-quotes:toggle'
   'alt-up': 'emmet:increment-number-by-1'
   'alt-down': 'emmet:decrement-number-by-1'
-  'ctrl-b': 'beautify:beautify-editor'
+  'ctrl-b': 'atom-beautify:beautify-editor'
   'ctrl-c': 'csscomb:execute'
   'shift-enter': 'custom:end-line'
   'cmd-alt-l': 'grammar-selector:show'

@@ -12,6 +12,7 @@ casks:
     - "atom"
     - "bartender"
     - "cloudup"
+    - "colorpicker-hex"
     - "dropbox"
     - "firefox"
     - "flux"
