@@ -6,6 +6,8 @@ source ~/.zprofile
 nvm install stable
 nvm alias default stable
 
+ln -s `which node` /usr/local/bin/node
+
 npm install -g browser-sync
 npm install -g eslint
 npm install -g gulp

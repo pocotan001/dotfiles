@@ -13,12 +13,6 @@ fi
 # Customize to your needs...
 
 #
-# Sublime Text
-#
-
-alias st="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
-
-#
 # highlight
 #
 

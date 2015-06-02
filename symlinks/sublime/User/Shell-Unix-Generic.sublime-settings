@@ -1,0 +1,12 @@
+{
+	"extensions":
+	[
+		".zshrc",
+		".zprofile",
+		".zshenv",
+		".zlogin",
+		".zlogout",
+		".zpreztorc",
+		"conf"
+	]
+}
