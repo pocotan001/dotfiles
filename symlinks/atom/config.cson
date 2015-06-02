@@ -4,7 +4,6 @@
       {}
     showIndentGuide: true
     showInvisibles: true
-    tabLength: 4
     preferredLineLength: 100
     autoIndentOnPaste: false
     fontSize: 14
@@ -97,6 +96,8 @@
   "travis-ci-status":
     {}
   react:
+    {}
+  "atom-ternjs":
     {}
 ".json.source":
   editor:

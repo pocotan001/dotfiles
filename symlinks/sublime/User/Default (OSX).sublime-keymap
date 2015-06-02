@@ -8,5 +8,5 @@
 	{ "keys": ["ctrl+s"], "command": "focus_side_bar" },
 	{ "keys": ["ctrl+s", "ctrl+s"], "command": "toggle_side_bar" },
     { "keys": ["f7"], "command": "noop" },
-    { "keys": ["ctrl+q"], "command": "select_quoted" }
+    { "keys": ["alt+q"], "command": "select_quoted" }
 ]

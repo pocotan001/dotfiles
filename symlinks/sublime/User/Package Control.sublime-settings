@@ -5,12 +5,14 @@
 	"installed_packages":
 	[
 		"Alignment",
-		"Browser Refresh",
+		"AutoFileName",
+		"Babel",
 		"ColorPicker",
 		"CSScomb",
 		"DocBlockr",
 		"Emmet",
 		"GitGutter",
+		"Gutter Color",
 		"JSONLint",
 		"Package Control",
 		"Preap",

@@ -29,3 +29,6 @@
 
 '.workspace .editor[data-grammar~="html"]:not([mini])':
   'tab': 'emmet:expand-abbreviation-with-tab'
+
+'.workspace .editor[data-grammar~="jsx"]:not([mini])':
+  'tab': 'emmet:expand-abbreviation-with-tab'
