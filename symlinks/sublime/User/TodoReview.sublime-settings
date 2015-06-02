@@ -1,0 +1,17 @@
+{
+  "patterns": {
+    "TODO": "TODO[\\s]*?:[\\s]*(?P<todo>.*)$",
+    "FIXME": "FIXME[\\s]*?:[\\s]*(?P<fixme>.*)$",
+    "XXX": "XXX[\\s]*?:[\\s]*(?P<xxx>.*)$"
+  },
+  "exclude_folders": [
+    "*.git*",
+    "*node_modules*",
+    "*dist*"
+  ],
+  "exclude_files": [
+    "*.sublime-workspace",
+    "*.sublime-project",
+    "*.md"
+  ]
+}

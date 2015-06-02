@@ -24,6 +24,7 @@
 		"SublimeLinter",
 		"SublimeLinter-contrib-eslint",
 		"TernJS",
+		"TodoReview",
 		"Tomorrow Color Schemes"
 	]
 }
