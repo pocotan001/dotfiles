@@ -4,7 +4,7 @@
 	],
 	"installed_packages":
 	[
-		"Alignment",
+		"AlignTab",
 		"AutoFileName",
 		"Babel",
 		"ColorPicker",
@@ -15,6 +15,7 @@
 		"GitGutter",
 		"Gutter Color",
 		"HTML-CSS-JS Prettify",
+		"JavaScript Console",
 		"JSONLint",
 		"Open Finder",
 		"Package Control",
