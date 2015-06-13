@@ -54,6 +54,7 @@ formulas:
 
 icons:
     Atom: "https://dribbble.com/shots/1809023-Atom-Zion-Style-Icon/attachments/299002"
+    Sublime Text: "https://github.com/jamiewilson/predawn/blob/master/dock-icons/sublime-predawn-dark-icon.icns"
     iTerm: "https://dribbble.com/shots/1702947-iTerm-Replacement-Icon/attachments/271548"
 
 symlinks:

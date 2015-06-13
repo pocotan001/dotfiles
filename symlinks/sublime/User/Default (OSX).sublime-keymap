@@ -9,11 +9,12 @@
   { "keys": ["ctrl+s"], "command": "focus_side_bar" },
   { "keys": ["ctrl+s", "ctrl+s"], "command": "toggle_side_bar" },
 
-  { "keys": ["super+alt+_", "super+alt+left"], "command": "focus_neighboring_group", "args": { "forward": false } },
-  { "keys": ["super+alt+_", "super+alt+right"], "command": "focus_neighboring_group" },
+  { "keys": ["super+alt+up", "super+alt+left"], "command": "focus_neighboring_group", "args": { "forward": false } },
+  { "keys": ["super+alt+up", "super+alt+right"], "command": "focus_neighboring_group" },
   { "keys": ["super+shift+alt+left"], "command": "move_to_neighboring_group", "args": { "forward": false } },
   { "keys": ["super+shift+alt+right"], "command": "move_to_neighboring_group" },
 
   { "keys": ["f7"], "command": "noop" },
-  { "keys": ["alt+q"], "command": "select_quoted" }
+  { "keys": ["alt+q"], "command": "select_quoted" },
+  { "keys": ["ctrl+c"], "command": "css_comb" }
 ]
