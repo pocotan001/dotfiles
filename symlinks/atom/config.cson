@@ -36,6 +36,10 @@
     _analyticsUserId: "83e3e528-5a8b-4752-8148-22d2458154ad"
     css_newline_between_rules: true
     css_selector_separator_newline: true
+    css_indent_size: 2
+    html_indent_size: 2
+    html_wrap_attributes_indent_size: 2
+    js_indent_size: 2
   "highlight-selected": {}
   "atom-lint": {}
   docblockr: {}
@@ -57,8 +61,8 @@
   "file-icons":
     coloured: false
   linter:
-    showHighlighting: false
     statusBar: "Show error if the cursor is in range"
+    showHighlighting: false
     showErrorInline: false
   "linter-jshint": {}
   "symbols-tree-view": {}
