@@ -1,7 +1,6 @@
 "*":
   editor:
-    invisibles:
-      {}
+    invisibles: {}
     showIndentGuide: true
     showInvisibles: true
     preferredLineLength: 100
@@ -24,28 +23,22 @@
       "one-dark-ui"
       "base16-tomorrow-dark-theme"
     ]
-  emmet:
-    {}
+  emmet: {}
   "exception-reporting":
     userId: "595df643-3b5f-c092-bb11-3c48ca6732d7"
   welcome:
     showOnStartup: false
-  "atom-alignment":
-    {}
-  "atom-color-highlight":
-    {}
+  "atom-alignment": {}
+  "atom-color-highlight": {}
   "autocomplete-plus":
     confirmCompletion: "enter"
   "atom-beautify":
     _analyticsUserId: "83e3e528-5a8b-4752-8148-22d2458154ad"
     css_newline_between_rules: true
     css_selector_separator_newline: true
-  "highlight-selected":
-    {}
-  "atom-lint":
-    {}
-  docblockr:
-    {}
+  "highlight-selected": {}
+  "atom-lint": {}
+  docblockr: {}
   "todo-show":
     ignoreThesePaths: [
       "/node_modules/"
@@ -60,45 +53,35 @@
       "XXX"
       "/XXX:?(.+$)/g"
     ]
-  "spell-check":
-    {}
+  "spell-check": {}
   "file-icons":
     coloured: false
   linter:
     showHighlighting: false
     statusBar: "Show error if the cursor is in range"
     showErrorInline: false
-  "linter-jshint":
-    {}
-  "symbols-tree-view":
-    {}
+  "linter-jshint": {}
+  "symbols-tree-view": {}
   whitespace:
     ignoreWhitespaceOnCurrentLine: false
   Ruler:
     enabled: true
     position: 80
-  "linter-jsonlint":
-    {}
-  "markdown-preview":
-    {}
-  "linter-eslint":
-    {}
+  "linter-jsonlint": {}
+  "markdown-preview": {}
+  "linter-eslint": {}
   "go-plus":
     goInstallation: "$GOROOT/bin/go"
     goPath: "$GOPATH"
     formatOnSave: false
   "git-projects":
     rootPath: "~/Development"
-  "project-palette-finder":
-    {}
+  "project-palette-finder": {}
   "custom-title":
     template: "<% if (filePath) { %><%= relativeFilePath %><% if (projectName) { %> - <%= projectName %><% } %><% if (gitHead) { %> [<%= gitHead %>]<% } %><% } else { %><%= fileName %><% } %>"
-  "travis-ci-status":
-    {}
-  react:
-    {}
-  "atom-ternjs":
-    {}
+  "travis-ci-status": {}
+  react: {}
+  "atom-ternjs": {}
 ".json.source":
   editor:
     preferredLineLength: 100

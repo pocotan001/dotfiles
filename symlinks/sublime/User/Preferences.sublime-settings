@@ -6,16 +6,18 @@
 		".svn",
 		".git",
 		".hg",
+		".publish",
 		"CVS",
-		"dist",
 		"build",
+		"dist",
 		"node_modules"
 	],
 	"font_size": 14,
 	"highlight_line": true,
 	"ignored_packages":
 	[
-		"Vintage"
+		"Vintage",
+		"GitGutter"
 	],
 	"overlay_scroll_bars": "enabled",
 	"rulers":
