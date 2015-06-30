@@ -17,8 +17,8 @@
 	"highlight_line": true,
 	"ignored_packages":
 	[
-		"Vintage",
-		"GitGutter"
+		"GitGutter",
+		"Vintage"
 	],
 	"overlay_scroll_bars": "enabled",
 	"rulers":
@@ -31,7 +31,7 @@
 	"static_modified_tab": true,
 	"tab_size": 2,
 	"tabs_small": true,
-	"theme": "Material-Theme-Darker.sublime-theme",
+	"theme": "Material-Theme.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true
 }
