@@ -5,7 +5,6 @@
     showInvisibles: true
     preferredLineLength: 100
     autoIndentOnPaste: false
-    fontSize: 14
   core:
     disabledPackages: [
       "autosave"
@@ -63,7 +62,6 @@
   linter:
     statusBar: "Show error if the cursor is in range"
     showHighlighting: false
-    showErrorInline: false
   "linter-jshint": {}
   "symbols-tree-view": {}
   whitespace:

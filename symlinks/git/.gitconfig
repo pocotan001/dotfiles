@@ -4,3 +4,4 @@
 [core]
 	excludesfile = ~/.gitignore
 	editor = vim
+  ignorecase = false

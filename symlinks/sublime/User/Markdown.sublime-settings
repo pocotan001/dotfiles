@@ -1,7 +1,7 @@
 {
-  "draw_centered": false,
-  "font_size": 14,
-  "trim_trailing_white_space_on_save": false,
-  "draw_white_space": "all",
-  "word_wrap": false
+	"draw_centered": false,
+	"draw_white_space": "all",
+	"enable_table_editor": true,
+	"font_size": 14,
+	"trim_trailing_white_space_on_save": false
 }
