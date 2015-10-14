@@ -1,4 +1,5 @@
 {
+	"bootstrapped": true,
 	"in_process_packages":
 	[
 	],
@@ -7,6 +8,7 @@
 		"AlignTab",
 		"AutoFileName",
 		"Babel",
+		"Better CoffeeScript",
 		"ColorPicker",
 		"CSS Extended Completions",
 		"CSScomb",

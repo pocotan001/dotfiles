@@ -1,11 +1,16 @@
 {
   "patterns": {
-    "TODO": "TODO[\\s]*?:[\\s]*(?P<todo>.*)$",
-    "FIXME": "FIXME[\\s]*?:[\\s]*(?P<fixme>.*)$",
-    "XXX": "XXX[\\s]*?:[\\s]*(?P<xxx>.*)$"
+    "TODO": "todo[: ]+?(?P<todo>.*)$",
+    "FIXME": "fixme[: ]+?(?P<fixme>.*)$",
+    "HACK": "hack[: ]+?(?P<hack>.*)$",
+    "XXX": "xxx[: ]+?(?P<xxx>.*)$"
   },
   "exclude_folders": [
     "*.git*",
+    "*.publish*",
+    "*public*",
+    "*build*",
+    "*videojs*",
     "*node_modules*",
     "*dist*"
   ],

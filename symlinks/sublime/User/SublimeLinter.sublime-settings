@@ -13,7 +13,7 @@
 		{
 			"eslint":
 			{
-				"@disable": false,
+				"@disable": true,
 				"args":
 				[
 				],
@@ -33,7 +33,7 @@
 			},
 			"standard":
 			{
-				"@disable": true,
+				"@disable": false,
 				"args":
 				[
 				],
