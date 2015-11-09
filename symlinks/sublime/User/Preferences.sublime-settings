@@ -13,7 +13,7 @@
 		"dist",
 		"node_modules"
 	],
-	"font_size": 14,
+	"font_size": 13,
 	"highlight_line": true,
 	"ignored_packages":
 	[
@@ -31,10 +31,10 @@
 	"show_full_path": true,
 	"show_line_endings": true,
 	"static_modified_tab": true,
-	"typescript_auto_format": false,
 	"tab_size": 2,
 	"tabs_small": true,
 	"theme": "Material-Theme.sublime-theme",
 	"translate_tabs_to_spaces": true,
-	"trim_trailing_white_space_on_save": true
+	"trim_trailing_white_space_on_save": true,
+	"typescript_auto_format": false
 }
