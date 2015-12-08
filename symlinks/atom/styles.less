@@ -1,8 +1,23 @@
 /* markdown-preview
 =================================================================== */
 
-.markdown-preview {
-    background: #eee;
+.markdown-preview:not([data-use-github-style]) {
+    color: #666;
+    background: #fff;
+}
+
+.markdown-preview:not([data-use-github-style]) h1,
+.markdown-preview:not([data-use-github-style]) h2,
+.markdown-preview:not([data-use-github-style]) h3,
+.markdown-preview:not([data-use-github-style]) h4,
+.markdown-preview:not([data-use-github-style]) h5,
+.markdown-preview:not([data-use-github-style]) h6,
+.markdown-preview:not([data-use-github-style]) strong {
+  color: #333;
+}
+
+.markdown-preview:not([data-use-github-style]) a, .markdown-preview:not([data-use-github-style]) a code {
+  color: #489CDF;
 }
 
 /* atom-runner
