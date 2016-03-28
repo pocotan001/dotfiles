@@ -1,8 +1,8 @@
 {
+	"auto_complete_commit_on_tab": true,
 	"bold_folder_labels": true,
 	"color_scheme": "Packages/User/SublimeLinter/Material-Theme (SL).tmTheme",
 	"findreplace_small": true,
-	"auto_complete_commit_on_tab": true,
 	"folder_exclude_patterns":
 	[
 		".svn",
