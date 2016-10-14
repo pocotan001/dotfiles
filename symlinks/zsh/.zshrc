@@ -76,3 +76,5 @@ function _gulp_completion() {
 }
 
 compdef _gulp_completion gulp
+
+export PATH="$HOME/.yarn/bin:$PATH"

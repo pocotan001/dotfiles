@@ -7,6 +7,8 @@
 		".zlogin",
 		".zlogout",
 		".zpreztorc",
-		"conf"
+		"conf",
+		".env",
+		"example"
 	]
 }
