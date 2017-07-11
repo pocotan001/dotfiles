@@ -11,6 +11,7 @@
 		"CVS",
 		"build",
 		"dist",
+		"dest",
 		"node_modules"
 	],
 	"font_face": "Fira Mono",

@@ -2,6 +2,7 @@
 	"extensions":
 	[
 		".babelrc",
-		".eslintrc"
+		".eslintrc",
+		".stylelintrc"
 	]
 }
