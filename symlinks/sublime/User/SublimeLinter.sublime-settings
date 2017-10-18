@@ -13,24 +13,14 @@
 		{
 			"eslint":
 			{
-				"@disable": false,
+				"@disable": true,
 				"args":
 				[
 				],
 				"excludes":
 				[
 					"**/node_modules/**",
-					"*/build/*"
-				]
-			},
-			"jscs":
-			{
-				"@disable": false,
-				"args":
-				[
-				],
-				"excludes":
-				[
+					"**/dist/**"
 				]
 			},
 			"standard":
@@ -41,6 +31,8 @@
 				],
 				"excludes":
 				[
+					"**/node_modules/**",
+					"**/dist/**"
 				]
 			},
 			"stylelint":
@@ -51,6 +43,20 @@
 				],
 				"excludes":
 				[
+					"**/node_modules/**",
+					"**/dist/**"
+				]
+			},
+			"tslint":
+			{
+				"@disable": false,
+				"args":
+				[
+				],
+				"excludes":
+				[
+					"**/node_modules/**",
+					"**/dist/**"
 				]
 			}
 		},

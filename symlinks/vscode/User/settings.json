@@ -1,0 +1,21 @@
+{
+    "editor.fontFamily": "'Fira Mono', monospace",
+    "editor.fontSize": 13,
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "boundary",
+    "editor.rulers": [100],
+    "files.associations": {
+      ".env": "shellscript",
+      ".babelrc": "json",
+      ".lintstagedrc": "json",
+      "yarn.lock": "shellscript"
+    },
+    "search.exclude": {
+      "**/dist": true
+    },
+    "window.title": "${activeEditorMedium}${separator}${rootName}",
+    "workbench.activityBar.visible": true,
+    "workbench.colorTheme": "Tomorrow Night",
+    "workbench.sideBar.location": "left",
+    "window.zoomLevel": 0
+  }

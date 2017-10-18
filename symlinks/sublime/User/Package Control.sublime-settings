@@ -5,6 +5,7 @@
 	],
 	"installed_packages":
 	[
+		"A File Icon",
 		"AlignTab",
 		"AutoFileName",
 		"Babel",
@@ -38,9 +39,9 @@
 		"SublimeLinter-contrib-eslint",
 		"SublimeLinter-contrib-standard",
 		"SublimeLinter-contrib-stylelint",
+		"SublimeLinter-contrib-tslint",
 		"SyncedSideBar",
 		"Table Editor",
-		"TernJS",
 		"Themes Menu Switcher",
 		"TodoReview",
 		"Tomorrow Color Schemes",
