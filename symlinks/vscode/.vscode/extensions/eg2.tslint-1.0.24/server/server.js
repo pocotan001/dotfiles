@@ -279,6 +279,7 @@ function validateTextDocument(connection, document) {
             }
             try {
                 trace('validateTextDocument: about to validate ' + document.uri);
+                connection.sendNotification(StatusNotification.type, { state: Status.ok });
                 let diagnostics = yield doValidate(connection, library, document);
                 connection.sendDiagnostics({ uri, diagnostics });
             }
@@ -420,6 +421,13 @@ function doValidate(conn, library, document) {
         if (settings.trace && settings.trace.server === 'verbose') {
             traceConfigurationFile(configuration.linterConfiguration);
         }
+        // tslint writes warnings using console.warn, capture these warnings and send them to the client
+        let originalConsoleWarn = console.warn;
+        let captureWarnings = (message) => {
+            conn.sendNotification(StatusNotification.type, { state: Status.warn });
+            originalConsoleWarn(message);
+        };
+        console.warn = captureWarnings;
         try {
             let linter = getLinterFromLibrary(library);
             if (isTsLintVersion4(library)) {
@@ -442,6 +450,7 @@ function doValidate(conn, library, document) {
             }
         }
         catch (err) {
+            console.warn = originalConsoleWarn;
             conn.console.info(getErrorMessage(err, document));
             connection.sendNotification(StatusNotification.type, { state: Status.error });
             trace(`No linting: tslint exception while linting`);
@@ -455,7 +464,6 @@ function doValidate(conn, library, document) {
             });
         }
         trace('doValidate: sending diagnostics: ' + result.failures.length);
-        connection.sendNotification(StatusNotification.type, { state: Status.ok });
         return diagnostics;
     });
 }
@@ -482,7 +490,7 @@ function fileIsExcluded(settings, path) {
         return minimatch(path, pattern, { dot: true });
     }
     if (settings.ignoreDefinitionFiles) {
-        if (minimatch(path, "**/*.d.ts", { dot: true })) {
+        if (path.endsWith('.d.ts')) {
             return true;
         }
     }
@@ -703,7 +711,7 @@ function createDisableRuleFix(problem, document) {
         text: `// tslint:disable-next-line:${problem.getRuleName()}\n`
     };
     let disableFix = {
-        label: `Disable rule "${problem.getRuleName()}"`,
+        label: `Disable rule "${problem.getRuleName()}" for this line`,
         documentVersion: document.version,
         problem: problem,
         edits: [disableEdit]

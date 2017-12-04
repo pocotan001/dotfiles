@@ -53,7 +53,7 @@ function activate(context) {
             client.info('vscode-tslint: Status is OK');
         }
         tslintStatus = status;
-        udpateStatusBarVisibility(vscode_1.window.activeTextEditor);
+        updateStatusBarVisibility(vscode_1.window.activeTextEditor);
     }
     function isTypeScriptDocument(document) {
         return document.languageId === 'typescript' || document.languageId === 'typescriptreact';
@@ -68,7 +68,7 @@ function activate(context) {
         }
         return false;
     }
-    function udpateStatusBarVisibility(editor) {
+    function updateStatusBarVisibility(editor) {
         switch (tslintStatus) {
             case Status.ok:
                 statusBarItem.text = 'TSLint';
@@ -90,8 +90,8 @@ function activate(context) {
         showStatusBarItem(serverRunning &&
             (isTypeScriptDocument(editor.document) || isEnabledForJavaScriptDocument(editor.document)));
     }
-    vscode_1.window.onDidChangeActiveTextEditor(udpateStatusBarVisibility);
-    udpateStatusBarVisibility(vscode_1.window.activeTextEditor);
+    vscode_1.window.onDidChangeActiveTextEditor(updateStatusBarVisibility);
+    updateStatusBarVisibility(vscode_1.window.activeTextEditor);
     // We need to go one level up since an extension compile the js code into
     // the output folder.
     let serverModulePath = path.join(__dirname, '..', 'server', 'server.js');
@@ -176,7 +176,7 @@ function activate(context) {
             statusBarItem.tooltip = stopped;
             serverRunning = false;
         }
-        udpateStatusBarVisibility(vscode_1.window.activeTextEditor);
+        updateStatusBarVisibility(vscode_1.window.activeTextEditor);
     });
     client.onReady().then(() => {
         client.onNotification(StatusNotification.type, (params) => {
@@ -370,7 +370,7 @@ function activate(context) {
             willSaveTextDocument.dispose();
             willSaveTextDocument = undefined;
         }
-        udpateStatusBarVisibility(vscode_1.window.activeTextEditor);
+        updateStatusBarVisibility(vscode_1.window.activeTextEditor);
     }
     configurationChangedListener = vscode_1.workspace.onDidChangeConfiguration(configurationChanged);
     configurationChanged();

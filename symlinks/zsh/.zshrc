@@ -79,3 +79,6 @@ compdef _gulp_completion gulp
 
 export PATH="$HOME/.yarn/bin:$PATH"
 eval "$(rbenv init -)"
+
+# gcloud
+export PATH=/usr/local/bin:/usr/local/sbin:~/google-cloud-sdk/bin:"$PATH"
