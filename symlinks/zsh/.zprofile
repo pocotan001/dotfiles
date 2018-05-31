@@ -86,7 +86,14 @@ source $(brew --prefix nvm)/nvm.sh
 
 export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=$HOME/.go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:/Users/denis/Programming/Golang/bin"
+
+#
+# Gcloud
+#
+
+export PATH=/usr/local/bin:/usr/local/sbin:~/google-cloud-sdk/bin:"$PATH"
 
 #
 # JAVA

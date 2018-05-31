@@ -1,0 +1,168 @@
+{
+	"name": "sort-typescript-imports",
+	"displayName": "Sort Typescript Imports",
+	"description": "Sorts import statements in Typescript code",
+	"version": "1.4.1",
+	"publisher": "miclo",
+	"license": "MIT",
+	"icon": "images/icon.png",
+	"bugs": {
+		"url": "https://github.com/MLoughry/sort-typescript-imports/issues"
+	},
+	"homepage": "https://github.com/MLoughry/sort-typescript-imports/blob/master/README.md",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/MLoughry/sort-typescript-imports.git"
+	},
+	"engines": {
+		"vscode": "^1.10.0"
+	},
+	"categories": [
+		"Formatters"
+	],
+	"galleryBanner": {
+		"color": "#f0efe7",
+		"theme": "light"
+	},
+	"keywords": [
+		"Typescript",
+		"imports",
+		"sort",
+		"import statements",
+		"import clauses"
+	],
+	"activationEvents": [
+		"onLanguage:typescript",
+		"onLanguage:typescriptreact",
+		"onCommand:extension.sortTypescriptImports"
+	],
+	"main": "./out/src/extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.sortTypescriptImports",
+				"title": "Sort imports"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Sort imports configuration",
+			"properties": {
+				"typescript.extension.sortImports.sortMethod": {
+					"type": "string",
+					"enum": [
+						"path",
+						"importName"
+					],
+					"description": "Whether to sort by the name of the import or the source path of the import",
+					"default": "importName"
+				},
+				"typescript.extension.sortImports.pathSortOrder": {
+					"type": "array",
+					"items": {
+						"type": "string",
+						"enum": [
+							"package",
+							"relativeUpLevel",
+							"relativeDownLevel"
+						]
+					},
+					"uniqueItems": true,
+					"minItems": 3,
+					"maxItems": 3,
+					"description": "When `sortMethod` is set to `path`, this controls the order to sort imports between package-level and path-relative imports. 'relativeUpLevel' describes relative paths that begin with '../', while ;relativeDownLevel' describes relative paths that begin with './'",
+					"default": [
+						"relativeDownLevel",
+						"relativeUpLevel",
+						"package"
+					]
+				},
+				"typescript.extension.sortImports.maxNamedImportsInSingleLine": {
+					"type": "number",
+					"description": "The maximum number of named imports to include in a single line",
+					"default": 3
+				},
+				"typescript.extension.sortImports.quoteStyle": {
+					"type": "string",
+					"description": "The type of quote to use for the file or package paths",
+					"enum": [
+						"single",
+						"double"
+					],
+					"default": "single"
+				},
+				"typescript.extension.sortImports.sortOnSave": {
+					"type": "boolean",
+					"description": "Whether to sort all imports whenever saving a Typescript file",
+					"default": false
+				},
+				"typescript.extension.sortImports.omitSemicolon": {
+					"type": "boolean",
+					"description": "Whether to omit the semicolon at the end of the line",
+					"default": false
+				},
+				"typescript.extension.sortImports.enableJavascript": {
+					"type": "boolean",
+					"description": "Whether to attempt to sort ES6-style imports in Javascript",
+					"default": false
+				}
+			}
+		},
+		"menus": {
+			"editor/context": [
+				{
+					"when": "resourceLangId == typescript && !inDebugMode",
+					"command": "extension.sortTypescriptImports",
+					"group": "1_modification"
+				},
+				{
+					"when": "resourceLangId == typescriptreact && !inDebugMode",
+					"command": "extension.sortTypescriptImports",
+					"group": "1_modification"
+				}
+			],
+			"editor/title/context": [
+				{
+					"when": "resourceLangId == typescript && !inDebugMode",
+					"command": "extension.sortTypescriptImports",
+					"group": "1_modification"
+				},
+				{
+					"when": "resourceLangId == typescriptreact && !inDebugMode",
+					"command": "extension.sortTypescriptImports",
+					"group": "1_modification"
+				}
+			]
+		},
+		"keybindings": [
+			{
+				"when": "resourceLangId == typescript && editorTextFocus && !inDebugMode",
+				"command": "extension.sortTypescriptImports",
+				"key": "f10"
+			},
+			{
+				"when": "resourceLangId == typescriptreact && editorTextFocus && !inDebugMode",
+				"command": "extension.sortTypescriptImports",
+				"key": "f10"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "tsc -p ./",
+		"compile": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^2.0.3",
+		"vscode": "^1.0.0",
+		"mocha": "^2.3.3",
+		"@types/node": "^6.0.40",
+		"@types/mocha": "^2.2.32"
+	},
+	"__metadata": {
+		"id": "1c014445-5a7f-4994-b0b3-75dce6a53891",
+		"publisherId": "20f03119-0af3-467f-944f-b977957014de",
+		"publisherDisplayName": "Michael Loughry"
+	}
+}

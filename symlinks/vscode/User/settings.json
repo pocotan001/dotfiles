@@ -3,7 +3,9 @@
   "editor.fontSize": 13,
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "boundary",
-  "editor.rulers": [100],
+  "editor.rulers": [
+    100
+  ],
   "emmet.triggerExpansionOnTab": true,
   "files.associations": {
     ".babelrc": "json",
@@ -12,6 +14,7 @@
     ".stylelintrc": "json",
     "yarn.lock": "shellscript"
   },
+  "go.gopath": "~/.go",
   "search.exclude": {
     "**/dist": true
   },
@@ -20,7 +23,8 @@
   "workbench.colorTheme": "Tomorrow Night",
   "workbench.sideBar.location": "left",
   "window.zoomLevel": 0,
-  "sublimeTextKeymap.promptV3Features": true,
   "editor.multiCursorModifier": "ctrlCmd",
-  "editor.snippetSuggestions": "top"
+  "editor.snippetSuggestions": "top",
+  "prettier.stylelintIntegration": true,
+  "vetur.format.defaultFormatter.html": "js-beautify-html",
 }
