@@ -84,10 +84,9 @@ source $(brew --prefix nvm)/nvm.sh
 # Golang
 #
 
-export GOROOT=/usr/local/opt/go/libexec
+export GOROOT=/usr/local/bin/go
 export GOPATH=$HOME/.go
-export PATH="$PATH:/usr/local/go/bin"
-export PATH="$PATH:/Users/denis/Programming/Golang/bin"
+export PATH=$PATH:$GOPATH/bin
 
 #
 # Gcloud
@@ -100,3 +99,9 @@ export PATH=/usr/local/bin:/usr/local/sbin:~/google-cloud-sdk/bin:"$PATH"
 #
 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home
+
+#
+# pyenv
+#
+
+export PATH="$HOME/.pyenv/shims:$PATH"

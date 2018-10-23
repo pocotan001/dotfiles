@@ -64,18 +64,7 @@ zle -N peco-cdr
 bindkey '^@' peco-cdr
 
 #
-# Gulp
+# pyenv
 #
 
-# Completion for gulp
-# https://github.com/gulpjs/gulp/tree/master/completion
-function _gulp_completion() {
-    compls=$(gulp --tasks-simple)
-    completions=(${=compls})
-    compadd -- $completions
-}
-
-compdef _gulp_completion gulp
-
-export PATH="$HOME/.yarn/bin:$PATH"
-eval "$(rbenv init -)"
+eval "$(pyenv init -)"
