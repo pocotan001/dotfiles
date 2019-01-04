@@ -1,9 +1,0 @@
-[submodule "symlinks/zsh/prezto"]
-	path = symlinks/zsh/.zprezto
-	url = git@github.com:sorin-ionescu/prezto.git
-[submodule "symlinks/tmux/.tmux-plugins/tpm"]
-	path = symlinks/tmux/.tmux-plugins/tpm
-	url = git@github.com:tmux-plugins/tpm.git
-[submodule "symlinks/vim/.vim/vim-plug"]
-	path = symlinks/vim/.vim/autoload
-	url = git@github.com:junegunn/vim-plug.git

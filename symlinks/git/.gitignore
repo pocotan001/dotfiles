@@ -1,7 +1,0 @@
-.DS_Store
-.idea
-.tscache
-.yarn-cache
-dist
-node_modules
-npm-debug.log

@@ -1,9 +1,0 @@
-{
-  "Arrow function": {
-    "prefix": "f",
-    "body": [
-      "($1) => {}"
-    ],
-    "description": "Shorter function"
-  }
-}

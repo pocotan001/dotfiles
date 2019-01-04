@@ -1,3 +1,0 @@
-{
-  "cmd": ["ksdiff", "$file1", "$file2"]
-}
