@@ -67,16 +67,24 @@ fi
 #
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# Load nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  
+# Load nvm bash_completion
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 #
 # Go
 #
 
-export GOROOT=/usr/local/bin/go
+export GOROOT=/usr/local/go
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
+
+#
+# Bazel
+#
+
+export PATH=$PATH:$HOME/bin
 
 #
 # Google Cloud SDK
