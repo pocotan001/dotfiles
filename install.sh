@@ -1,9 +1,9 @@
 #!/bin/bash
 
-for f in .??*; do
-    [ "$f" = ".git" ] && continue
-    [ "$f" = ".DS_Store" ] && continue
-    [ "$f" = ".idea" ] && continue
+for f in ~/Dropbox/Development/dotfiles/.[^.]*; do
+  [[ $f =~ /.git$ ]] && continue
+  [[ $f =~ /.DS_Store$ ]] && continue
+  [[ $f =~ /.idea$ ]] && continue
 
-    ln -snfv ~/Dropbox/Development/dotfiles/"$f" ~
+  ln -snfv "$f" ~
 done
