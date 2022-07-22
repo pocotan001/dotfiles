@@ -1,7 +1,17 @@
 [user]
-	name = pocotan001
+	name = Hayato Mizuno
 	email = pocotan001@gmail.com
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[push]
+	default = simple
 [core]
-	excludesfile = ~/.gitignore
-	editor = vim
-  ignorecase = false
+	editor = code --wait
+	quotepath = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
