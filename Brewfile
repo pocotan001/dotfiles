@@ -15,6 +15,7 @@ brew "terminal-notifier"
 brew "tree"
 
 # 'brew install --cask'
+cask "fig"
 cask "iterm2"
 cask "ngrok"
 cask "webviewscreensaver"
