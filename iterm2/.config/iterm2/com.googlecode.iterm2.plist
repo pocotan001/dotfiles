@@ -1034,6 +1034,11 @@
 	<integer>0</integer>
 	<key>TabsHaveCloseButton</key>
 	<false/>
+	<key>ToolbeltTools</key>
+	<array>
+		<string>Notes</string>
+		<string>Recent Directories</string>
+	</array>
 	<key>UseBorder</key>
 	<false/>
 	<key>VisualIndicatorForEsc</key>
