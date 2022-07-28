@@ -1,21 +1,30 @@
-# https://github.com/Homebrew/homebrew-bundle
-
-# 'brew tap'
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "ngrok/ngrok"
-
-# 'brew install'
 brew "fish"
 brew "fzf"
 brew "starship"
 brew "stow"
 brew "terminal-notifier"
 brew "tree"
-
-# 'brew install --cask'
+cask "appcleaner"
+cask "bitwarden"
+cask "dropbox"
 cask "fig"
+cask "figma"
+cask "font-fira-code-nerd-font"
+cask "github"
+cask "google-chrome"
+cask "google-japanese-ime"
 cask "iterm2"
+cask "kap"
 cask "ngrok"
+cask "optimage"
+cask "raycast"
+cask "slack"
+cask "the-unarchiver"
+cask "visual-studio-code"
 cask "webviewscreensaver"
+cask "zoom"
