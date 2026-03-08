@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "defaultMode": "acceptEdits",
+  "permissions": {
+    "allow": ["Bash(npm run *)", "Bash(bun run *)"],
+    "deny": ["Read(./.env)", "Read(./.env.*)", "Read(./secrets/**)"]
+  }
+}
