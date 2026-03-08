@@ -18,3 +18,21 @@ Run the following command
 ```sh
 make
 ```
+
+## AI Agent Skills
+
+エージェントスキルは [npx skills](https://skills.sh) で管理しています。
+
+### スキルの追加
+
+```sh
+cd ~
+npx skills add <source>
+```
+
+### スキルの削除
+
+```sh
+cd ~
+npx skills remove <name>
+```
