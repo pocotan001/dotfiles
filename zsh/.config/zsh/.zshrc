@@ -40,6 +40,9 @@ eval "$(starship init zsh)"
 # asdf
 export PATH="$HOME/.asdf/shims:$PATH"
 
+# melos
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+
 # Git alias
 alias g='git'
 compdef g=git

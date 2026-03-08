@@ -24,3 +24,10 @@ Temporary Items
 
 # Zsh
 .zsh_history
+.zcompdump*
+
+# Agent Skills (runtime files)
+**/.claude/skills/
+**/.codex/skills/
+**/.claude/settings.local.json
+**/.codex/.codex-global-state.json
