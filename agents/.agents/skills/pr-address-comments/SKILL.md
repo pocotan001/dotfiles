@@ -7,7 +7,7 @@ description: Address all valid review comments on a PR for the current branch. U
 
 Address actionable review comments on the PR for the current branch using `gh` CLI.
 
-Prereq: ensure `gh` is authenticated (for example, run `gh auth login` once), then run `gh auth status` with escalated permissions (include workflow/repo scopes) so `gh` commands succeed. If sandboxing blocks `gh auth status`, rerun it with `sandbox_permissions=require_escalated`.
+Prereq: ensure `gh` is authenticated (for example, run `gh auth login` once), then run `gh auth status` so `gh` commands succeed. If your runtime blocks networked `gh` calls, rerun with the environment's elevated network/permission mode.
 
 ## Inspect comments needing attention
 
@@ -24,7 +24,7 @@ Code review requires technical evaluation, not emotional performance.
 
 **Include:** Unresolved threads, `issue`/`todo`/`chore` comments, maintainer feedback, `CHANGES_REQUESTED` reviews
 
-**Exclude:** Resolved threads, `praise`/`thought`/`note` comments, PR author's own comments
+**Exclude:** Resolved threads, `praise`/`thought`/`note` comments, and self-authored comments that do not request action. Do not auto-exclude comments from your human partner.
 
 **Critical analysis:** Before categorizing a comment or suggesting a response, thoroughly investigate the code and context:
 - **Read the code:** Carefully read the relevant code sections mentioned in the comment, including surrounding logic.
@@ -34,7 +34,7 @@ Code review requires technical evaluation, not emotional performance.
 
 **Action types** (per [conventional comments](https://conventionalcomments.org)): `issue` / `todo` / `chore` (must fix) · `suggestion` (consider) · `nitpick` (optional) · `question` (clarify) · `praise` / `thought` / `note` (skip)
 
-#### The Response Pattern
+### The Response Pattern
 
 ```
 WHEN receiving code review feedback:
@@ -47,7 +47,7 @@ WHEN receiving code review feedback:
 6. IMPLEMENT: One item at a time, test each
 ```
 
-#### Forbidden Responses
+### Forbidden Responses
 
 **NEVER:**
 - "You're absolutely right!" (explicit CLAUDE.md violation)
@@ -60,7 +60,7 @@ WHEN receiving code review feedback:
 - Push back with technical reasoning if wrong
 - Just start working (actions > words)
 
-#### Handling Unclear Feedback
+### Handling Unclear Feedback
 
 ```
 IF any item is unclear:
@@ -79,16 +79,16 @@ You understand 1,2,3,6. Unclear on 4,5.
 ✅ RIGHT: "I understand items 1,2,3,6. Need clarification on 4 and 5 before proceeding."
 ```
 
-#### Source-Specific Handling
+### Source-Specific Handling
 
-##### From your human partner
+#### From your human partner
 
 - **Trusted** - implement after understanding
 - **Still ask** if scope unclear
 - **No performative agreement**
 - **Skip to action** or technical acknowledgment
 
-##### From External Reviewers
+#### From External Reviewers
 
 ```
 BEFORE implementing:
@@ -110,7 +110,7 @@ IF conflicts with your human partner's prior decisions:
 
 **your human partner's rule:** "External feedback - be skeptical, but check carefully"
 
-#### YAGNI Check for "Professional" Features
+### YAGNI Check for "Professional" Features
 
 ```
 IF reviewer suggests "implementing properly":
@@ -122,7 +122,7 @@ IF reviewer suggests "implementing properly":
 
 **your human partner's rule:** "You and reviewer both report to me. If we don't need this feature, don't add it."
 
-### Present options
+## Present options
 
 ```
 Found {N} unresolved comments on PR #{NUMBER}: {TITLE}
@@ -162,7 +162,7 @@ Recommended: "1,2,3" (required items)
 Options: "1-5" | "all" | "1,2,3" | "skip 4,5"
 ```
 
-### Apply fixes
+## Apply fixes
 
 For each selected item:
 1. Clarify anything unclear FIRST
@@ -171,8 +171,10 @@ For each selected item:
 4. Apply minimal fix for one item at a time and test each fix
 5. Verify no regressions
 6. Prepare brief reply text for the PR comment
+7. Post the reply immediately in-thread with `🤖` + newline; do not leave pending replies
+8. Resolve only bot-started threads, and only after posting the reply
 
-#### When To Push Back
+### When To Push Back
 
 Push back when:
 - Suggestion breaks existing functionality
@@ -192,7 +194,7 @@ Push back when:
 
 **High-complexity fixes:** If a fix requires large refactors, new abstractions, or risky changes disproportionate to the comment, stop and present the trade-off to the user. Let them decide whether to proceed, push back, or find a simpler approach.
 
-#### Acknowledging Correct Feedback
+### Acknowledging Correct Feedback
 
 When feedback IS correct:
 ```
@@ -211,7 +213,7 @@ When feedback IS correct:
 
 **If you catch yourself about to write "Thanks":** DELETE IT. State the fix instead.
 
-#### Gracefully Correcting Your Pushback
+### Gracefully Correcting Your Pushback
 
 ```
 ✅ "You were right—I checked [X] and it does [Y]. Implementing now."
@@ -224,7 +226,7 @@ When feedback IS correct:
 
 State the correction factually and move on.
 
-### Summary
+## Summary
 
 ```bash
 git status --short
@@ -273,12 +275,12 @@ Next steps:
   git push
 
 ─────────────────────────────────────────────────────────
-Post Replies to PR Comments? (optional, after push)
+Post Replies to PR Comments now? (optional; immediate post, no pending)
 
 Options: "all" | "bots" (skip humans) | "1,2,3" | "skip"
 ```
 
-#### GitHub Thread Replies
+## GitHub Thread Replies
 
 When replying to inline review comments on GitHub, reply in the comment thread (`gh api repos/{owner}/{repo}/pulls/{pr}/comments/{id}/replies`), not as a top-level PR comment.
 
