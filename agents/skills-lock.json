@@ -1,11 +1,6 @@
 {
   "version": 1,
   "skills": {
-    "addressing-pr-review-comments": {
-      "source": "streamlit/streamlit",
-      "sourceType": "github",
-      "computedHash": "0c82e02ade0f72b9f43b02fce95cd08619febd4665d10042bef79f7a62fff70c"
-    },
     "audit-website": {
       "source": "squirrelscan/skills",
       "sourceType": "github",
@@ -25,6 +20,11 @@
       "source": "github/awesome-copilot",
       "sourceType": "github",
       "computedHash": "2607fc60629b82b257136dd2a7a373f0a4466c0b49df7746d845d59313c99b21"
+    },
+    "refactor": {
+      "source": "github/awesome-copilot",
+      "sourceType": "github",
+      "computedHash": "87789a786b96f99ba0680e89345a975106e10e7db1071c7cdc2e76d507c449d6"
     },
     "requesting-code-review": {
       "source": "obra/superpowers",
