@@ -7,71 +7,20 @@ description: Address all valid review comments on a PR for the current branch. U
 
 Address actionable review comments on the PR for the current branch using `gh` CLI.
 
-## Overview
+Prereq: ensure `gh` is authenticated (for example, run `gh auth login` once), then run `gh auth status` with escalated permissions (include workflow/repo scopes) so `gh` commands succeed. If sandboxing blocks `gh auth status`, rerun it with `sandbox_permissions=require_escalated`.
+
+## Inspect comments needing attention
+
+- Run `python scripts/fetch_comments.py` which will print out all the comments and review threads on the PR
+
+Notes:
+- If `gh` hits auth/rate issues mid-run, prompt the user to re-authenticate with `gh auth login`, then retry.
+
+## Detailed Triage Guidance
 
 Code review requires technical evaluation, not emotional performance.
 
 **Core principle:** Verify before implementing. Ask before assuming. Technical correctness over social comfort.
-
-## Workflow checklist
-
-Copy and track progress:
-
-```
-- [ ] 1. Verify auth: gh auth status
-- [ ] 2. Fetch PR data and comments
-- [ ] 3. Analyze and categorize comments
-- [ ] 4. Present options to user
-- [ ] 5. Apply selected fixes
-- [ ] 6. Show summary, next steps, and offer to post replies
-```
-
-### 1. Verify authentication
-
-```bash
-gh auth status
-```
-
-If auth fails, prompt user to run `gh auth login`.
-
-### 2. Fetch PR data
-
-```bash
-# PR details for current branch (extract PR number, OWNER, and REPO from the url field)
-gh pr view --json number,title,url,state,author,headRefName,baseRefName,reviewDecision,reviews,comments
-
-# Inline review comments with file/line info (--paginate fetches all pages)
-gh api --paginate repos/{OWNER}/{REPO}/pulls/{PR_NUMBER}/comments
-
-# General PR discussion comments (--paginate fetches all pages)
-gh api --paginate repos/{OWNER}/{REPO}/issues/{PR_NUMBER}/comments
-```
-
-Get unresolved review threads via GraphQL:
-
-```bash
-gh api graphql -f query="
-{
-  repository(owner: \"{OWNER}\", name: \"{REPO}\") {
-    pullRequest(number: {PR_NUMBER}) {
-      reviewThreads(first: 100) {
-        nodes {
-          isResolved
-          path
-          line
-          comments(first: 1) {
-            nodes { author { login } body }
-          }
-        }
-      }
-    }
-  }
-}" --jq '[.data.repository.pullRequest.reviewThreads.nodes[] | select(.isResolved == false)]'
-```
-
-**Tip:** Save outputs to `work-tmp/reviews/pr-{PR_NUMBER}-review-threads.json` for later reference if the data falls out of context.
-
-### 3. Analyze comments
 
 **Include:** Unresolved threads, `issue`/`todo`/`chore` comments, maintainer feedback, `CHANGES_REQUESTED` reviews
 
@@ -173,11 +122,10 @@ IF reviewer suggests "implementing properly":
 
 **your human partner's rule:** "You and reviewer both report to me. If we don't need this feature, don't add it."
 
-### 4. Present options
+### Present options
 
 ```
 Found {N} unresolved comments on PR #{NUMBER}: {TITLE}
-Review Decision: {APPROVED|CHANGES_REQUESTED|REVIEW_REQUIRED}
 
 Actionable Items:
 ─────────────────────────────────────────────────────────
@@ -214,7 +162,7 @@ Recommended: "1,2,3" (required items)
 Options: "1-5" | "all" | "1,2,3" | "skip 4,5"
 ```
 
-### 5. Apply fixes
+### Apply fixes
 
 For each selected item:
 1. Clarify anything unclear FIRST
@@ -276,7 +224,7 @@ When feedback IS correct:
 
 State the correction factually and move on.
 
-### 6. Summary
+### Summary
 
 ```bash
 git status --short
