@@ -326,22 +326,3 @@ mutation {
 | Avoiding pushback | Technical correctness > comfort |
 | Partial implementation | Clarify all items first |
 | Can't verify, proceed anyway | State limitation, ask for direction |
-
-## Error handling
-
-| Issue | Solution |
-|-------|----------|
-| Auth failed | `gh auth login` |
-| No PR for branch | `gh pr list --head $(git branch --show-current)` |
-| No comments | "No actionable comments found" |
-| File not found | Comment may reference deleted/moved file |
-| Rate limited | Wait and retry |
-| Uncommitted changes | Warn user first |
-
-## The Bottom Line
-
-**External feedback = suggestions to evaluate, not orders to follow.**
-
-Verify. Question. Then implement.
-
-No performative agreement. Technical rigor always.
