@@ -7,6 +7,12 @@ description: Address all valid review comments on a PR for the current branch. U
 
 Address actionable review comments on the PR for the current branch using `gh` CLI.
 
+## Overview
+
+Code review requires technical evaluation, not emotional performance.
+
+**Core principle:** Verify before implementing. Ask before assuming. Technical correctness over social comfort.
+
 ## Workflow checklist
 
 Copy and track progress:
@@ -31,7 +37,7 @@ If auth fails, prompt user to run `gh auth login`.
 ### 2. Fetch PR data
 
 ```bash
-# PR details for current branch (extract PR number from here)
+# PR details for current branch (extract PR number, OWNER, and REPO from the url field)
 gh pr view --json number,title,url,state,author,headRefName,baseRefName,reviewDecision,reviews,comments
 
 # Inline review comments with file/line info (--paginate fetches all pages)
@@ -74,10 +80,98 @@ gh api graphql -f query="
 **Critical analysis:** Before categorizing a comment or suggesting a response, thoroughly investigate the code and context:
 - **Read the code:** Carefully read the relevant code sections mentioned in the comment, including surrounding logic.
 - **Challenge assumptions:** Do not take the reviewer's comment or the original code's correctness for granted. Question both.
-- **Seek the truth:** Determine the most correct outcome—whether that means siding with the reviewer, defending the code, or proposing a new solution.
+- **Seek the truth:** Determine the most correct outcome - whether that means siding with the reviewer, defending the code, or proposing a new solution.
 - **Verify bot comments:** Bot suggestions may be false positives. Always validate the issue exists before acting.
 
 **Action types** (per [conventional comments](https://conventionalcomments.org)): `issue` / `todo` / `chore` (must fix) · `suggestion` (consider) · `nitpick` (optional) · `question` (clarify) · `praise` / `thought` / `note` (skip)
+
+#### The Response Pattern
+
+```
+WHEN receiving code review feedback:
+
+1. READ: Complete feedback without reacting
+2. UNDERSTAND: Restate requirement in own words (or ask)
+3. VERIFY: Check against codebase reality
+4. EVALUATE: Technically sound for THIS codebase?
+5. RESPOND: Technical acknowledgment or reasoned pushback
+6. IMPLEMENT: One item at a time, test each
+```
+
+#### Forbidden Responses
+
+**NEVER:**
+- "You're absolutely right!" (explicit CLAUDE.md violation)
+- "Great point!" / "Excellent feedback!" (performative)
+- "Let me implement that now" (before verification)
+
+**INSTEAD:**
+- Restate the technical requirement
+- Ask clarifying questions
+- Push back with technical reasoning if wrong
+- Just start working (actions > words)
+
+#### Handling Unclear Feedback
+
+```
+IF any item is unclear:
+  STOP - do not implement anything yet
+  ASK for clarification on unclear items
+
+WHY: Items may be related. Partial understanding = wrong implementation.
+```
+
+**Example:**
+```
+your human partner: "Fix 1-6"
+You understand 1,2,3,6. Unclear on 4,5.
+
+❌ WRONG: Implement 1,2,3,6 now, ask about 4,5 later
+✅ RIGHT: "I understand items 1,2,3,6. Need clarification on 4 and 5 before proceeding."
+```
+
+#### Source-Specific Handling
+
+##### From your human partner
+
+- **Trusted** - implement after understanding
+- **Still ask** if scope unclear
+- **No performative agreement**
+- **Skip to action** or technical acknowledgment
+
+##### From External Reviewers
+
+```
+BEFORE implementing:
+  1. Check: Technically correct for THIS codebase?
+  2. Check: Breaks existing functionality?
+  3. Check: Reason for current implementation?
+  4. Check: Works on all platforms/versions?
+  5. Check: Does reviewer understand full context?
+
+IF suggestion seems wrong:
+  Push back with technical reasoning
+
+IF can't easily verify:
+  Say so: "I can't verify this without [X]. Should I [investigate/ask/proceed]?"
+
+IF conflicts with your human partner's prior decisions:
+  Stop and discuss with your human partner first
+```
+
+**your human partner's rule:** "External feedback - be skeptical, but check carefully"
+
+#### YAGNI Check for "Professional" Features
+
+```
+IF reviewer suggests "implementing properly":
+  grep codebase for actual usage
+
+  IF unused: "This endpoint isn't called. Remove it (YAGNI)?"
+  IF used: Then implement properly
+```
+
+**your human partner's rule:** "You and reviewer both report to me. If we don't need this feature, don't add it."
 
 ### 4. Present options
 
@@ -123,12 +217,64 @@ Options: "1-5" | "all" | "1,2,3" | "skip 4,5"
 ### 5. Apply fixes
 
 For each selected item:
-1. Read the affected file
-2. Assess complexity - flag high-complexity fixes to user instead of applying
-3. Apply minimal fix
-4. Prepare brief reply text for the PR comment
+1. Clarify anything unclear FIRST
+2. Read the affected file and assess complexity
+3. Prioritize implementation in this order: blocking issues, simple fixes, then complex fixes
+4. Apply minimal fix for one item at a time and test each fix
+5. Verify no regressions
+6. Prepare brief reply text for the PR comment
+
+#### When To Push Back
+
+Push back when:
+- Suggestion breaks existing functionality
+- Reviewer lacks full context
+- Violates YAGNI (unused feature)
+- Technically incorrect for this stack
+- Legacy/compatibility reasons exist
+- Conflicts with your human partner's architectural decisions
+
+**How to push back:**
+- Use technical reasoning, not defensiveness
+- Ask specific questions
+- Reference working tests/code
+- Involve your human partner if architectural
+
+**Signal if uncomfortable pushing back out loud:** "Strange things are afoot at the Circle K"
 
 **High-complexity fixes:** If a fix requires large refactors, new abstractions, or risky changes disproportionate to the comment, stop and present the trade-off to the user. Let them decide whether to proceed, push back, or find a simpler approach.
+
+#### Acknowledging Correct Feedback
+
+When feedback IS correct:
+```
+✅ "Fixed. [Brief description of what changed]"
+✅ "Good catch - [specific issue]. Fixed in [location]."
+✅ [Just fix it and show in the code]
+
+❌ "You're absolutely right!"
+❌ "Great point!"
+❌ "Thanks for catching that!"
+❌ "Thanks for [anything]"
+❌ ANY gratitude expression
+```
+
+**Why no thanks:** Actions speak. Just fix it. The code itself shows you heard the feedback.
+
+**If you catch yourself about to write "Thanks":** DELETE IT. State the fix instead.
+
+#### Gracefully Correcting Your Pushback
+
+```
+✅ "You were right—I checked [X] and it does [Y]. Implementing now."
+✅ "Verified this and you're correct. My initial understanding was wrong because [reason]. Fixing."
+
+❌ Long apology
+❌ Defending why you pushed back
+❌ Over-explaining
+```
+
+State the correction factually and move on.
 
 ### 6. Summary
 
@@ -153,13 +299,13 @@ Summary of Changes
 Addressed 3 of 5 comments:
 
 ✅ #1 [issue]: Fixed null check in utils.py
-   Reply: "Added null check as suggested. Good catch!"
+   Reply: "Fixed. Added null check before accessing the property."
 
 ✅ #2 [nitpick]: Renamed variable to snake_case
-   Reply: "Fixed, thanks for the consistency note."
+   Reply: "Fixed."
 
 ✅ #3 [todo]: Added docstring to function
-   Reply: "Added comprehensive docstring."
+   Reply: "Good catch - missing docstring. Added in utils.py:42."
 
 ⏭️ #4 [question]: Skipped - requires your input
    Question: "Should this handle the edge case of empty lists?"
@@ -184,10 +330,17 @@ Post Replies to PR Comments? (optional, after push)
 Options: "all" | "bots" (skip humans) | "1,2,3" | "skip"
 ```
 
-To post a reply to a review comment:
+#### GitHub Thread Replies
 
-> **Reply format:** Always prefix the body with `🤖` followed by a newline, e.g. `"🤖\nYour reply text here"`.
-> **Post immediately:** Use direct API endpoints (shown below) so replies are published right away—never use the pending review API.
+When replying to inline review comments on GitHub, reply in the comment thread (`gh api repos/{owner}/{repo}/pulls/{pr}/comments/{id}/replies`), not as a top-level PR comment.
+
+Reply rules:
+- Prefix every reply body with `🤖` followed by a newline.
+- Post replies immediately via direct API endpoints so they are not pending.
+- Never resolve threads started by humans.
+- Resolving threads started by bots is allowed after posting the reply.
+
+To post a reply to a review comment:
 
 ```bash
 # For inline review comments (use the comment ID from the API response)
@@ -201,7 +354,7 @@ gh api repos/{OWNER}/{REPO}/issues/{PR_NUMBER}/comments \
 @{reviewer} Re: {brief context} - {reply text}"
 ```
 
-To resolve a review thread after replying (bots only—do not resolve threads started by humans):
+To resolve a review thread after replying (bot-started threads only):
 
 ```bash
 gh api graphql -f query="
@@ -212,17 +365,17 @@ mutation {
 }"
 ```
 
-## Rules
+## Common Mistakes
 
-- **Minimal fixes**: Address exactly what was requested
-- **Flag complexity**: If a fix requires significant refactoring, flag it to user first
-- **Verify bot comments**: Always validate before acting
-- **Preserve intent**: Don't change unrelated code
-- **Reply suggestions**: Provide brief, professional reply text for each addressed comment
-- **Reply prefix**: Always start reply bodies with `🤖` on its own line
-- **Post immediately**: Publish replies via direct API calls; never use the pending review endpoint
-- **Thread resolution**: Do not resolve threads started by human reviewers; threads initiated by bots may be resolved after replying
-- **Skip**: Resolved threads, info-only comments, praise, incorrect bot suggestions
+| Mistake | Fix |
+|---------|-----|
+| Performative agreement | State requirement or just act |
+| Blind implementation | Verify against codebase first |
+| Batch without testing | One at a time, test each |
+| Assuming reviewer is right | Check if it breaks things |
+| Avoiding pushback | Technical correctness > comfort |
+| Partial implementation | Clarify all items first |
+| Can't verify, proceed anyway | State limitation, ask for direction |
 
 ## Error handling
 
@@ -234,3 +387,11 @@ mutation {
 | File not found | Comment may reference deleted/moved file |
 | Rate limited | Wait and retry |
 | Uncommitted changes | Warn user first |
+
+## The Bottom Line
+
+**External feedback = suggestions to evaluate, not orders to follow.**
+
+Verify. Question. Then implement.
+
+No performative agreement. Technical rigor always.
