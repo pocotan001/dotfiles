@@ -26,11 +26,6 @@
       "sourceType": "github",
       "computedHash": "2607fc60629b82b257136dd2a7a373f0a4466c0b49df7746d845d59313c99b21"
     },
-    "refactor": {
-      "source": "github/awesome-copilot",
-      "sourceType": "github",
-      "computedHash": "87789a786b96f99ba0680e89345a975106e10e7db1071c7cdc2e76d507c449d6"
-    },
     "requesting-code-review": {
       "source": "obra/superpowers",
       "sourceType": "github",
