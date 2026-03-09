@@ -2,3 +2,6 @@ personality = "pragmatic"
 model_reasoning_effort = "high"
 approval_policy = "on-request"
 sandbox_mode = "workspace-write"
+
+[mcp_servers.figma]
+url = "https://mcp.figma.com/mcp"

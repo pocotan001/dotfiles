@@ -11,7 +11,7 @@ Prereq: ensure `gh` is authenticated (for example, run `gh auth login` once), th
 
 ## Inspect comments needing attention
 
-- Run `python scripts/fetch_comments.py` which will print out all the comments and review threads on the PR
+- Run `python3 ~/.agents/skills/pr-address-comments/scripts/fetch_comments.py` which will print out all the comments and review threads on the PR
 
 Notes:
 - If `gh` hits auth/rate issues mid-run, prompt the user to re-authenticate with `gh auth login`, then retry.
