@@ -186,18 +186,18 @@ Options: "all" | "bots" (skip humans) | "1,2,3" | "skip"
 
 To post a reply to a review comment:
 
-> **Reply format:** Always prefix the body with `[AI]` followed by a newline, e.g. `"[AI]\nYour reply text here"`.
+> **Reply format:** Always prefix the body with `🤖` followed by a newline, e.g. `"🤖\nYour reply text here"`.
 > **Post immediately:** Use direct API endpoints (shown below) so replies are published right away—never use the pending review API.
 
 ```bash
 # For inline review comments (use the comment ID from the API response)
 gh api repos/{OWNER}/{REPO}/pulls/{PR_NUMBER}/comments/{COMMENT_ID}/replies \
-  -f body="[AI]
+  -f body="🤖
 Your reply text here"
 
 # For general PR discussion comments
 gh api repos/{OWNER}/{REPO}/issues/{PR_NUMBER}/comments \
-  -f body="[AI]
+  -f body="🤖
 @{reviewer} Re: {brief context} - {reply text}"
 ```
 
@@ -219,7 +219,7 @@ mutation {
 - **Verify bot comments**: Always validate before acting
 - **Preserve intent**: Don't change unrelated code
 - **Reply suggestions**: Provide brief, professional reply text for each addressed comment
-- **Reply prefix**: Always start reply bodies with `[AI]` on its own line
+- **Reply prefix**: Always start reply bodies with `🤖` on its own line
 - **Post immediately**: Publish replies via direct API calls; never use the pending review endpoint
 - **Thread resolution**: Do not resolve threads started by human reviewers; threads initiated by bots may be resolved after replying
 - **Skip**: Resolved threads, info-only comments, praise, incorrect bot suggestions
