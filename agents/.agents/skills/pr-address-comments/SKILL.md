@@ -286,6 +286,7 @@ When replying to inline review comments on GitHub, reply in the comment thread (
 
 Reply rules:
 - Prefix every reply body with `🤖` followed by a newline.
+- Include the short commit hash from `git rev-parse --short HEAD` in every reply body.
 - Post replies immediately via direct API endpoints so they are not pending.
 - Never resolve threads started by humans.
 - Resolving threads started by bots is allowed after posting the reply.
@@ -296,12 +297,12 @@ To post a reply to a review comment:
 # For inline review comments (use the comment ID from the API response)
 gh api repos/{OWNER}/{REPO}/pulls/{PR_NUMBER}/comments/{COMMENT_ID}/replies \
   -f body="🤖
-Your reply text here"
+Your reply text here (commit: $(git rev-parse --short HEAD))"
 
 # For general PR discussion comments
 gh api repos/{OWNER}/{REPO}/issues/{PR_NUMBER}/comments \
   -f body="🤖
-@{reviewer} Re: {brief context} - {reply text}"
+@{reviewer} Re: {brief context} - {reply text} (commit: $(git rev-parse --short HEAD))"
 ```
 
 To resolve a review thread after replying (bot-started threads only):
