@@ -171,6 +171,8 @@ For each selected item:
 4. Apply minimal fix for one item at a time and test each fix
 5. Verify no regressions
 6. Prepare brief reply text for the PR comment
+   Include the short commit hash for replies only when you actually applied a code change for that comment (for example, `abc1234`).
+   Do not start the reply with filler like `Fixed.` or `Good catch.` Start with the concrete change or answer.
 7. Post the reply immediately in-thread with `🤖` + newline; do not leave pending replies
 8. Resolve only bot-started threads, and only after posting the reply
 
@@ -196,35 +198,21 @@ Push back when:
 
 ### Acknowledging Correct Feedback
 
-When feedback IS correct:
-```
-✅ "Fixed. [Brief description of what changed]"
-✅ "Good catch - [specific issue]. Fixed in [location]."
-✅ [Just fix it and show in the code]
+When feedback is correct, state the concrete change or answer directly.
 
-❌ "You're absolutely right!"
-❌ "Great point!"
-❌ "Thanks for catching that!"
-❌ "Thanks for [anything]"
-❌ ANY gratitude expression
-```
-
-**Why no thanks:** Actions speak. Just fix it. The code itself shows you heard the feedback.
-
-**If you catch yourself about to write "Thanks":** DELETE IT. State the fix instead.
+Avoid:
+- Performative agreement
+- Gratitude expressions
+- Filler openings
 
 ### Gracefully Correcting Your Pushback
 
-```
-✅ "You were right—I checked [X] and it does [Y]. Implementing now."
-✅ "Verified this and you're correct. My initial understanding was wrong because [reason]. Fixing."
+If your initial pushback was wrong, correct it factually and move on.
 
-❌ Long apology
-❌ Defending why you pushed back
-❌ Over-explaining
-```
-
-State the correction factually and move on.
+Avoid:
+- Long apologies
+- Defending the earlier pushback
+- Over-explaining
 
 ## Summary
 
@@ -234,7 +222,7 @@ git diff --stat
 ```
 
 Report:
-- Changes per comment with suggested reply text
+- Changes per comment
 - Remaining unaddressed comments
 - Skipped items (questions, bot false positives)
 - Next steps: `git add`, `git commit -m "fix: address PR review comments"`, `git push`
@@ -249,13 +237,10 @@ Summary of Changes
 Addressed 3 of 5 comments:
 
 ✅ #1 [issue]: Fixed null check in utils.py
-   Reply: "Fixed. Added null check before accessing the property."
 
 ✅ #2 [nitpick]: Renamed variable to snake_case
-   Reply: "Fixed."
 
 ✅ #3 [todo]: Added docstring to function
-   Reply: "Good catch - missing docstring. Added in utils.py:42."
 
 ⏭️ #4 [question]: Skipped - requires your input
    Question: "Should this handle the edge case of empty lists?"
@@ -286,7 +271,7 @@ When replying to inline review comments on GitHub, reply in the comment thread (
 
 Reply rules:
 - Prefix every reply body with `🤖` followed by a newline.
-- Include the short commit hash from `git rev-parse --short HEAD` in every reply body.
+- Include the short commit hash from `git rev-parse --short HEAD` only for replies to comments you actually addressed with a code change.
 - Post replies immediately via direct API endpoints so they are not pending.
 - Never resolve threads started by humans.
 - Resolving threads started by bots is allowed after posting the reply.
@@ -294,15 +279,20 @@ Reply rules:
 To post a reply to a review comment:
 
 ```bash
-# For inline review comments (use the comment ID from the API response)
+# For inline review comments you fixed with a code change
 gh api repos/{OWNER}/{REPO}/pulls/{PR_NUMBER}/comments/{COMMENT_ID}/replies \
   -f body="🤖
-Your reply text here (commit: $(git rev-parse --short HEAD))"
+Your reply text here ($(git rev-parse --short HEAD))"
 
-# For general PR discussion comments
+# For inline review comments without a code change (for example, clarification, pushback, or skip)
+gh api repos/{OWNER}/{REPO}/pulls/{PR_NUMBER}/comments/{COMMENT_ID}/replies \
+  -f body="🤖
+Your reply text here"
+
+# For general PR discussion comments with a code change
 gh api repos/{OWNER}/{REPO}/issues/{PR_NUMBER}/comments \
   -f body="🤖
-@{reviewer} Re: {brief context} - {reply text} (commit: $(git rev-parse --short HEAD))"
+@{reviewer} Re: {brief context} - {reply text} ($(git rev-parse --short HEAD))"
 ```
 
 To resolve a review thread after replying (bot-started threads only):
