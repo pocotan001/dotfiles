@@ -26,6 +26,9 @@ Temporary Items
 .zsh_history
 .zcompdump*
 
+# git-worktree
+.worktrees/
+
 # Agent Skills (runtime files)
 **/.claude/skills/
 **/.codex/skills/
