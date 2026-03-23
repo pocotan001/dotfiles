@@ -43,6 +43,9 @@ export PATH="$HOME/.asdf/shims:$PATH"
 # melos
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 
+# Worktrunk
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+
 # Git alias
 alias g='git'
 compdef g=git
