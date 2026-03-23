@@ -1,0 +1,7 @@
+# wt config
+# https://worktrunk.dev/config/
+
+worktree-path = "{{ repo_path }}/../.worktrees/{{ repo }}/{{ branch | sanitize }}"
+
+[post-start]
+copy_ignored = "wt step copy-ignored"
