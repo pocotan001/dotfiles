@@ -29,8 +29,14 @@ Temporary Items
 # git-worktree
 .worktrees/
 
-# Agent Skills (runtime files)
+# Claude Code
 **/.claude/skills/
-**/.codex/skills/
 **/.claude/settings.local.json
+
+# Codex
+**/.codex/skills/
+**/.codex/environments/
 **/.codex/.codex-global-state.json
+
+# gstack
+.gstack/
