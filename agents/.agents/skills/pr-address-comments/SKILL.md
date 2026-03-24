@@ -173,8 +173,9 @@ For each selected item:
 6. Prepare brief reply text for the PR comment
    Include the short commit hash for replies only when you actually applied a code change for that comment (for example, `abc1234`).
    Do not start the reply with filler like `Fixed.` or `Good catch.` Start with the concrete change or answer.
-7. Post the reply immediately in-thread with `🤖` + newline; do not leave pending replies
-8. Resolve only bot-started threads, and only after posting the reply
+7. Post the reply immediately in-thread with `🤖`; do not leave pending replies
+8. Post a reply even when skipping — briefly explain why (e.g., false positive, question for user, out of scope)
+9. Resolve only bot-started threads, and only after posting the reply
 
 ### When To Push Back
 
@@ -270,9 +271,10 @@ Options: "all" | "bots" (skip humans) | "1,2,3" | "skip"
 When replying to inline review comments on GitHub, reply in the comment thread (`gh api repos/{owner}/{repo}/pulls/{pr}/comments/{id}/replies`), not as a top-level PR comment.
 
 Reply rules:
-- Prefix every reply body with `🤖` followed by a newline.
+- Prefix every reply body with `🤖`.
 - Include the short commit hash from `git rev-parse --short HEAD` only for replies to comments you actually addressed with a code change.
 - Post replies immediately via direct API endpoints so they are not pending.
+- Post a reply to every comment, including skipped ones — explain why briefly.
 - Never resolve threads started by humans.
 - Resolving threads started by bots is allowed after posting the reply.
 
@@ -281,18 +283,15 @@ To post a reply to a review comment:
 ```bash
 # For inline review comments you fixed with a code change
 gh api repos/{OWNER}/{REPO}/pulls/{PR_NUMBER}/comments/{COMMENT_ID}/replies \
-  -f body="🤖
-Your reply text here ($(git rev-parse --short HEAD))"
+  -f body="🤖 Your reply text here ($(git rev-parse --short HEAD))"
 
 # For inline review comments without a code change (for example, clarification, pushback, or skip)
 gh api repos/{OWNER}/{REPO}/pulls/{PR_NUMBER}/comments/{COMMENT_ID}/replies \
-  -f body="🤖
-Your reply text here"
+  -f body="🤖 Your reply text here"
 
 # For general PR discussion comments with a code change
 gh api repos/{OWNER}/{REPO}/issues/{PR_NUMBER}/comments \
-  -f body="🤖
-@{reviewer} Re: {brief context} - {reply text} ($(git rev-parse --short HEAD))"
+  -f body="🤖 @{reviewer} Re: {brief context} - {reply text} ($(git rev-parse --short HEAD))"
 ```
 
 To resolve a review thread after replying (bot-started threads only):
