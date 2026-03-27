@@ -23,8 +23,9 @@ Temporary Items
 .apdisk
 
 # Zsh
-.zsh_history
+.zcompcache/
 .zcompdump*
+.zsh_history
 
 # git-worktree
 .worktrees/
@@ -37,6 +38,10 @@ Temporary Items
 **/.codex/skills/
 **/.codex/environments/
 **/.codex/.codex-global-state.json
+
+# Superset
+**/.superset/config.json
+**/.superset/config.local.json
 
 # gstack
 .gstack/
