@@ -37,14 +37,14 @@ setopt share_history
 # Starship
 eval "$(starship init zsh)"
 
-# asdf
-export PATH="$HOME/.asdf/shims:$PATH"
-
-# melos
-export PATH="$PATH":"$HOME/.pub-cache/bin"
+# mise
+eval "$(mise activate zsh)"
 
 # Worktrunk
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+
+# melos
+export PATH="$PATH":"$HOME/.pub-cache/bin"
 
 # Git alias
 alias g='git'
