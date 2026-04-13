@@ -8,7 +8,7 @@
 [push]
 	default = simple
 [core]
-	editor = code --wait
+	editor = zed --wait
 	quotepath = false
 	ignorecase = false
 [filter "lfs"]
