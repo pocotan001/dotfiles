@@ -46,6 +46,9 @@ if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)
 # melos
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 
+# bun
+export PATH="$HOME/.bun/bin:$PATH"
+
 # Git alias
 alias g='git'
 compdef g=git
