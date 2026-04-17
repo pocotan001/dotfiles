@@ -65,6 +65,6 @@
       }
     ]
   },
-  "defaultMode": "acceptEdits",
+  "defaultMode": "auto",
   "skipDangerousModePermissionPrompt": true
 }
