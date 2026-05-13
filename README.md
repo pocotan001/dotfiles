@@ -19,6 +19,12 @@ Run the following command
 make
 ```
 
+## Codex config
+
+`codex/.codex/config.toml` is local-only because Codex writes machine-specific
+paths and state into it. Shared defaults live in
+`codex/.codex/config.toml.example`; `make` copies it on first setup.
+
 ## AI Agent Skills
 
 エージェントスキルは [npx skills](https://skills.sh) で管理しています。

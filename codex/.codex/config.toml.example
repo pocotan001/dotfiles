@@ -2,7 +2,7 @@ personality = "pragmatic"
 model_reasoning_effort = "high"
 approval_policy = "on-request"
 sandbox_mode = "workspace-write"
-model = "gpt-5.4"
+model = "gpt-5.5"
 
 [mcp_servers.figma]
 url = "https://mcp.figma.com/mcp"
@@ -12,6 +12,7 @@ url = "https://mcp.notion.com/mcp"
 
 [features]
 multi_agent = true
+hooks = true
 
 [plugins."github@openai-curated"]
 enabled = true
