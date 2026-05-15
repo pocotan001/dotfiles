@@ -1,6 +1,7 @@
 brew "codex"
 brew "gh"
 brew "mise"
+brew "playwright-cli"
 brew "rtk"
 brew "starship"
 brew "stow"
