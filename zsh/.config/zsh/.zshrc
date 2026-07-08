@@ -34,21 +34,6 @@ setopt print_eight_bit
 setopt pushd_ignore_dups
 setopt share_history
 
-# Starship
-eval "$(starship init zsh)"
-
-# mise
-eval "$(mise activate zsh)"
-
-# Worktrunk
-if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
-
-# melos
-export PATH="$PATH":"$HOME/.pub-cache/bin"
-
-# bun
-export PATH="$HOME/.bun/bin:$PATH"
-
 # Git alias
 alias g='git'
 compdef g=git
@@ -68,3 +53,23 @@ alias gm='git merge'
 compdef _git gm=git-merge
 alias gp='git push'
 compdef _git gp=git-push
+
+export PATH="$HOME/.local/bin:$PATH"
+
+# Starship
+eval "$(starship init zsh)"
+
+# Mise
+eval "$(mise activate zsh)"
+
+# Bun
+export PATH="$HOME/.bun/bin:$PATH"
+
+# Worktrunk
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+
+# Superset
+export PATH="$HOME/.superset/bin:$PATH"
+
+# Melos
+export PATH="$PATH":"$HOME/.pub-cache/bin"
