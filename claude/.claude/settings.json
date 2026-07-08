@@ -1,14 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "permissions": {
-    "allow": [
-      "Bash",
-      "Edit",
-      "Read",
-      "Write",
-      "Grep",
-      "Glob"
-    ],
+    "allow": ["Bash", "Edit", "Read", "Write", "Grep", "Glob"],
     "deny": [
       "Bash(sudo *)",
       "Bash(rm -rf *)",
@@ -92,6 +85,17 @@
       }
     ]
   },
-  "defaultMode": "auto",
-  "skipDangerousModePermissionPrompt": true
+  "enabledPlugins": {
+    "codex@openai-codex": true
+  },
+  "extraKnownMarketplaces": {
+    "openai-codex": {
+      "source": {
+        "source": "github",
+        "repo": "openai/codex-plugin-cc"
+      }
+    }
+  },
+  "tui": "fullscreen",
+  "defaultMode": "auto"
 }
