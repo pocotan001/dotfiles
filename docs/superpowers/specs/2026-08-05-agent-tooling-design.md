@@ -44,18 +44,21 @@ It must never create a local config under the repository.
 ## Migration
 
 The bootstrap migrates installations made by the current layout before creating
-new links. It removes only these known legacy links when their resolved target
-is inside the removed `agents/.claude/skills/` or `agents/.codex/skills/`
-directories:
+new links. It removes only these known legacy links when the *first-hop* link
+destination is inside the removed `agents/.claude/skills/` or
+`agents/.codex/skills/` directories:
 
 - `~/.claude/skills/pr-address-comments`
 - `~/.claude/skills/refactor`
 - `~/.codex/skills/pr-address-comments`
 
-It does not remove a path that is not a symlink to one of those legacy
-locations. The bootstrap then recreates the local `pr-address-comments` links
-directly from `~/.agents/skills/`. `refactor` is left to `npx skills`, which is
-its declared owner.
+It does not resolve the final destination when checking a legacy link: those
+links ultimately resolve to `agents/.agents/skills/`, which is a valid local
+source. Instead, it reads the first link target and normalizes its parent path
+without dereferencing the final component. It does not remove a path that is
+not a symlink to one of those legacy locations. The bootstrap then recreates
+the local `pr-address-comments` links directly from `~/.agents/skills/`.
+`refactor` is left to `npx skills`, which is its declared owner.
 
 ## Setup Flow
 
@@ -139,7 +142,8 @@ The implementation is complete when:
    `~/.codex/skills/pr-address-comments` resolve to the tracked local skill.
 6. The repository no longer contains ignored `agents/.claude/skills/` or
    `agents/.codex/skills/` entries.
-7. A pre-migration installation has only the three known legacy links removed;
-   unrelated user skills and links remain untouched.
+7. A pre-migration installation has only the three known legacy links removed,
+   identified by their normalized first-hop parent directories; unrelated user
+   skills and links remain untouched.
 8. `git diff --check` passes and a clean checkout followed by `make` leaves
    only expected host-managed files outside the repository.
