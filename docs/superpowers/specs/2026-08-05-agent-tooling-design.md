@@ -36,10 +36,33 @@ package can deploy stale links even while Git ignores them.
 The root `.gitignore` continues to exclude generated skill directories and the
 machine-local `codex/.codex/config.toml`.
 
+The ignored local Codex config is also removed from the `codex/` Stow package.
+The tracked `codex/.codex/config.toml.example` remains the shared template, but
+the bootstrap creates `~/.codex/config.toml` directly after Stow has finished.
+It must never create a local config under the repository.
+
+## Migration
+
+The bootstrap migrates installations made by the current layout before creating
+new links. It removes only these known legacy links when their resolved target
+is inside the removed `agents/.claude/skills/` or `agents/.codex/skills/`
+directories:
+
+- `~/.claude/skills/pr-address-comments`
+- `~/.claude/skills/refactor`
+- `~/.codex/skills/pr-address-comments`
+
+It does not remove a path that is not a symlink to one of those legacy
+locations. The bootstrap then recreates the local `pr-address-comments` links
+directly from `~/.agents/skills/`. `refactor` is left to `npx skills`, which is
+its declared owner.
+
 ## Setup Flow
 
-`make` remains the single normal setup command. After Stow has deployed the
-tracked dotfiles, it runs an agent-tooling setup target that:
+`make` remains the single normal setup command. It first deploys only tracked
+Stow inputs, then ensures `~/.codex/config.toml` exists by copying
+`~/.codex/config.toml.example` only when the local file is absent. It then runs
+an agent-tooling setup target that:
 
 1. Restores third-party skills from `~/skills-lock.json` with `npx skills
    experimental_install --yes`.
@@ -66,13 +89,22 @@ Makefile stays readable and the checks are shared by setup and verification.
 
 ## Update Flow
 
-Normal `make` does not update external content.
+Normal `make` does not update external content or modify
+`agents/skills-lock.json`.
 
-`make update-agents` is the only update entry point. It updates the declared
-skills with `npx skills update`, refreshes the Ponytail marketplace through
-each host CLI, and reinstalls the selected plugin revision when the host
-requires it. A skills update that changes `agents/skills-lock.json` is
-reviewed and committed.
+`make update-agents` is the only update entry point. It runs these commands:
+
+```sh
+cd "$HOME" && npx skills update --yes
+claude plugin marketplace update ponytail
+claude plugin install ponytail@ponytail
+codex plugin marketplace upgrade ponytail
+codex plugin add ponytail@ponytail
+```
+
+A skills update that changes `agents/skills-lock.json` is reviewed and
+committed. A plugin update may require Codex hook reapproval when the hook
+content changes.
 
 Ponytail follows the revision supplied by its official marketplace. Its cache
 is not vendored or pinned in this repository. This is the lowest-maintenance
@@ -101,11 +133,13 @@ The implementation is complete when:
    failing because Ponytail is already installed.
 2. `claude plugin list` reports `ponytail@ponytail` enabled.
 3. `codex plugin list` reports `ponytail@ponytail` installed and enabled.
-4. `npx skills list --json` contains every skill declared in
+4. `cd "$HOME" && npx skills list --json` contains every skill declared in
    `agents/skills-lock.json`.
 5. `~/.claude/skills/pr-address-comments` and
    `~/.codex/skills/pr-address-comments` resolve to the tracked local skill.
 6. The repository no longer contains ignored `agents/.claude/skills/` or
    `agents/.codex/skills/` entries.
-7. `git diff --check` passes and a clean checkout followed by `make` leaves
+7. A pre-migration installation has only the three known legacy links removed;
+   unrelated user skills and links remain untouched.
+8. `git diff --check` passes and a clean checkout followed by `make` leaves
    only expected host-managed files outside the repository.
