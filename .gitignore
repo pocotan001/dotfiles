@@ -1,1 +1,4 @@
+**/.claude/skills/
+**/.codex/skills/
+.worktrees/
 codex/.codex/config.toml
