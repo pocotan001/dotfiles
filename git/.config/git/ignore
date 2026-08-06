@@ -31,17 +31,17 @@ Temporary Items
 .worktrees/
 
 # Claude Code
-**/.claude/skills/
 **/.claude/settings.local.json
 
 # Codex
-**/.codex/skills/
 **/.codex/environments/
 **/.codex/.codex-global-state.json
 
-# Superset
-**/.superset/config.json
-**/.superset/config.local.json
+# Conductor
+**/.context/
+
+# Superpowers
+**/docs/superpowers/
 
 # gstack
 .gstack/
