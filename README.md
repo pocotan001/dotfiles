@@ -21,24 +21,26 @@ make
 
 ## Codex config
 
-`codex/.codex/config.toml` is local-only because Codex writes machine-specific
-paths and state into it. Shared defaults live in
-`codex/.codex/config.toml.example`; `make` copies it on first setup.
+`codex/.codex/config.toml.example` is stowed as the shared Codex configuration
+template. Tooling setup copies it directly to `~/.codex/config.toml` only when
+that path does not exist and is not a symlink. This repository never stores
+local Codex configuration.
 
-## AI Agent Skills
+## Agent Tooling
 
-エージェントスキルは [npx skills](https://skills.sh) で管理しています。
+`make` installs the machine bootstrap: Homebrew packages, Stow-managed
+configuration, and mise runtimes.
 
-### スキルの追加
+On a new machine, run `make`, then ask an AI to follow
+`agents/AGENT_TOOLING.md` to install or update externally managed skills and
+Ponytail. On an existing machine upgrading from the legacy layout, ask an AI to
+run the guide's migration preflight before the first `make`, then run `make` and
+continue with the guide's setup. Repository-local skills live in
+`agents/.agents/skills` and are handled by that guide.
 
-```sh
-cd ~
-npx skills add <source>
-```
+RTK is installed through `Brewfile`; its Claude hook and Claude/Codex
+instructions are stowed from this repository, so `make` restores its
+integration. RTK history, tee logs, and telemetry consent stay local to each
+machine.
 
-### スキルの削除
-
-```sh
-cd ~
-npx skills remove <name>
-```
+After a Ponytail change, Codex `/hooks` requires user review.
