@@ -42,9 +42,8 @@ test "$actual" = "$expected"
    (cd "$HOME" && mise exec -- npx skills experimental_install --yes)
    ```
 
-3. ローカルリンクの前に `~/.claude/skills` と `~/.codex/skills` を個別に確認する。パスがない場合だけ `mkdir "$HOME/.claude/skills"` または `mkdir "$HOME/.codex/skills"` を実行する。実ディレクトリなら続行する。シンボリックリンクまたは非ディレクトリなら報告して停止する。
-4. `$repo/agents/.agents/skills/*/SKILL.md` を探索する。各 `<name>` について `~/.claude/skills/<name>` と `~/.codex/skills/<name>` を確認し、存在しない場合だけターゲット `"$repo/agents/.agents/skills/<name>"` のリンクを作成する。既存のリンクは `actual="$(canonical_path "$path")"` と `expected="$(canonical_path "$repo/agents/.agents/skills/<name>")"` が完全一致する場合だけ維持する。したがって、同じ先を指す絶対リンクや別の相対リンクも維持する。既存の非リンクまたは解決先が異なるリンクは置換しないで報告する。
-5. Ponytail の現在の marketplace とプラグイン状態を、変更前に読取専用で確認する。
+3. `make` はローカル管理スキルもリンクする。この処理は `~/.claude/skills` と `~/.codex/skills` が実ディレクトリであることを確認し、既存の異なるリンクや通常ファイルを置換しない。Conductor 内では `CONDUCTOR_ROOT_PATH` を使うため、一時ワークスペースをリンク先にしない。
+4. Ponytail の現在の marketplace とプラグイン状態を、変更前に読取専用で確認する。
 
    ```sh
    claude plugin marketplace list --json
