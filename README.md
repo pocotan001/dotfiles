@@ -29,14 +29,15 @@ local Codex configuration.
 ## Agent Tooling
 
 `make` installs the machine bootstrap: Homebrew packages, Stow-managed
-configuration, and mise runtimes.
+configuration, mise runtimes, and links repository-local skills into Claude
+Code and Codex.
 
 On a new machine, run `make`, then ask an AI to follow
 `agents/AGENT_TOOLING.md` to install or update externally managed skills and
 Ponytail. On an existing machine upgrading from the legacy layout, ask an AI to
 run the guide's migration preflight before the first `make`, then run `make` and
 continue with the guide's setup. Repository-local skills live in
-`agents/.agents/skills` and are handled by that guide.
+`agents/.agents/skills` and are linked by `make`.
 
 RTK is installed through `Brewfile`; its Claude hook and Claude/Codex
 instructions are stowed from this repository, so `make` restores its
