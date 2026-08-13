@@ -29,8 +29,11 @@ local Codex configuration.
 ## Agent Tooling
 
 `make` installs the machine bootstrap: Homebrew packages, Stow-managed
-configuration, mise runtimes, and links repository-local skills into Claude
-Code and Codex.
+configuration, mise runtimes, repository-local skills, and the latest
+[Agency Agents](https://github.com/msitarzewski/agency-agents) Codex agents.
+Agency Agents is installed with its official conversion and `--link` install
+scripts from `~/.local/share/agency-agents`; rerunning `make` updates it from
+the `main` branch.
 
 On a new machine, run `make`, then ask an AI to follow
 `agents/AGENT_TOOLING.md` to install or update externally managed skills and
