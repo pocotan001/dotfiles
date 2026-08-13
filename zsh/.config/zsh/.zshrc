@@ -68,8 +68,5 @@ export PATH="$HOME/.bun/bin:$PATH"
 # Worktrunk
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
 
-# Superset
-export PATH="$HOME/.superset/bin:$PATH"
-
 # Melos
 export PATH="$PATH":"$HOME/.pub-cache/bin"
