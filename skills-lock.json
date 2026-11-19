@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "skills": {
+    "create-github-pull-request-from-specification": {
+      "source": "github/awesome-copilot",
+      "sourceType": "github",
+      "computedHash": "d86361c73764183eb3b9ae214afcb107041942bab1587e8332ca3280648d11a8"
+    },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "computedHash": "bad9884f0a4a7e827bf677c4b63e04053b2290c6671954fcb5a6cae692c5a13f"
+    },
+    "natural-japanese": {
+      "source": "coji/natural-japanese",
+      "commit": "840bd400cbcb64c8b64d492a144da54fc05776c5",
+      "sourceType": "github",
+      "skillPath": "skills/natural-japanese/SKILL.md",
+      "computedHash": "40683c3c92259a33ba7e52cd5c65311de55103a4c9275ab832408704a6b6e81b"
+    },
+    "skill-creator": {
+      "source": "anthropics/skills",
+      "commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+      "sourceType": "github",
+      "skillPath": "skills/skill-creator/SKILL.md",
+      "computedHash": "2d7f889e6ae93c6c27d699856942c336b5b8644537496987d5571043d059b1dc"
+    }
+  }
+}

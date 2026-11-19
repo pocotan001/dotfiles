@@ -1,0 +1,10 @@
+#!/bin/sh
+set -eu
+
+source_dir=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd -P)
+brew bundle upgrade --file "$source_dir/assets/Brewfile"
+(cd "$HOME" && mise exec -- npx skills update --yes)
+claude plugin update ponytail@ponytail
+codex plugin marketplace upgrade ponytail
+codex plugin add ponytail@ponytail
+chezmoi apply

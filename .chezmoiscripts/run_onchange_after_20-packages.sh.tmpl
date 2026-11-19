@@ -1,0 +1,8 @@
+#!/bin/sh
+set -eu
+
+# Brewfile hash: {{ include "assets/Brewfile" | sha256sum }}
+source_dir={{ .chezmoi.sourceDir | quote }}
+export PATH="$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
+brew bundle check --no-upgrade --file "$source_dir/assets/Brewfile" || \
+  brew bundle install --no-upgrade --file "$source_dir/assets/Brewfile"

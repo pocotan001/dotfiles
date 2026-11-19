@@ -1,4 +1,13 @@
-**/.claude/skills/
-**/.codex/skills/
+.DS_Store
+.claude/
+.gstack/
 .worktrees/
-codex/.codex/config.toml
+legacy/backups/
+/agents/.agents/
+/claude/
+/codex/
+/git/
+/mise/
+/starship/
+/worktrunk/
+/zsh/
