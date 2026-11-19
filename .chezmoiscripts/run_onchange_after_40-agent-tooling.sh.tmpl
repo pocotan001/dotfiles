@@ -1,20 +1,14 @@
 #!/bin/sh
 set -eu
 
-# Local skill hash: {{ include "dot_local/share/dotfiles/skills/pr-address-comments/SKILL.md" | sha256sum }}
 # External skills hash: {{ include "skills-lock.json" | sha256sum }}
 # Agency Agents lock hash: {{ include "assets/agents/agency-agents.lock" | sha256sum }}
-# gstack lock hash: {{ include "assets/agents/gstack.lock" | sha256sum }}
-# Local skill linker hash: {{ include "assets/scripts/link-local-skills.sh" | sha256sum }}
 # Agency installer hash: {{ include "assets/scripts/install-agency-agents.sh" | sha256sum }}
-# gstack installer hash: {{ include "assets/scripts/install-gstack.sh" | sha256sum }}
 source_dir={{ .chezmoi.sourceDir | quote }}
 export PATH="$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
 
-/bin/sh "$source_dir/assets/scripts/link-local-skills.sh"
-(cd "$HOME" && mise exec -- npx skills experimental_install --yes)
+(cd "$HOME" && mise exec -- npx skills install --frozen-lockfile --agent claude-code --agent codex)
 CHEZMOI_SOURCE_DIR="$source_dir" /bin/sh "$source_dir/assets/scripts/install-agency-agents.sh"
-CHEZMOI_SOURCE_DIR="$source_dir" /bin/sh "$source_dir/assets/scripts/install-gstack.sh"
 
 if ! claude plugin marketplace list --json | grep -Fq 'DietrichGebert/ponytail'; then
   claude plugin marketplace add DietrichGebert/ponytail

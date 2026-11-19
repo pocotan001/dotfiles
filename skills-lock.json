@@ -1,16 +1,6 @@
 {
   "version": 2,
   "skills": {
-    "create-github-pull-request-from-specification": {
-      "source": "github/awesome-copilot",
-      "sourceType": "github",
-      "computedHash": "d86361c73764183eb3b9ae214afcb107041942bab1587e8332ca3280648d11a8"
-    },
-    "find-skills": {
-      "source": "vercel-labs/skills",
-      "sourceType": "github",
-      "computedHash": "bad9884f0a4a7e827bf677c4b63e04053b2290c6671954fcb5a6cae692c5a13f"
-    },
     "natural-japanese": {
       "source": "coji/natural-japanese",
       "commit": "840bd400cbcb64c8b64d492a144da54fc05776c5",

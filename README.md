@@ -24,14 +24,18 @@ chezmoi diff
 
 `chezmoi update` only installs missing Brewfile entries; it does not upgrade
 installed packages. Use `sh script/update` when you intentionally want
-upgrades.
+upgrades. It also imports an updated `skills-lock.json` into this source
+directory for review and commit.
 
 ## Agent tooling
 
-The repository owns the local `pr-address-comments` skill and links it into
-Claude and Codex. Third-party skills come from `skills-lock.json`. Agency
-Agents and gstack are installed at the revisions in `assets/agents/`, not from
-moving branches. Ponytail is installed through the vendor CLIs.
+The repository owns the local `pr-address-comments` and
+`create-github-pull-request-from-specification` skills. They are managed
+directly in `~/.agents/skills`, with chezmoi-managed agent-specific links.
+Third-party skills come from `skills-lock.json` and are linked to both agents.
+Agency Agents is installed at the revision in
+`assets/agents/`, not from a moving branch. Ponytail is installed through the
+vendor CLIs.
 
 After Ponytail is installed or updated, review its hooks in Codex with
 `/hooks`; hook trust is intentionally a per-machine decision.
