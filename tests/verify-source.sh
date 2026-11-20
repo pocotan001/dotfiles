@@ -26,8 +26,9 @@ done
 
 test ! -e "$repo/Makefile"
 test ! -e "$repo/agents/install-agency-agents.sh"
+test -x "$repo/.githooks/pre-commit"
 
-for script in "$repo"/.chezmoiscripts/* "$repo"/assets/scripts/* "$repo"/script/update; do
+for script in "$repo"/.chezmoiscripts/* "$repo"/.githooks/* "$repo"/assets/scripts/* "$repo"/script/update; do
   sh -n "$script"
 done
 zsh -n "$repo/dot_zshenv" "$repo/dot_config/zsh/dot_zprofile" "$repo/dot_config/zsh/dot_zshrc"

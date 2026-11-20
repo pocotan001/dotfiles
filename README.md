@@ -27,6 +27,10 @@ installed packages. Use `sh script/update` when you intentionally want
 upgrades. It also imports an updated `skills-lock.json` into this source
 directory for review and commit.
 
+Commits from this source directory run `tests/verify-source.sh` first. The
+hook is enabled automatically during initial apply; to enable it manually, run
+`git config --local core.hooksPath .githooks` from this directory.
+
 ## Agent tooling
 
 The repository owns the local `pr-address-comments` and

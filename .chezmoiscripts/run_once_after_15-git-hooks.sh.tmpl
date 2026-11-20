@@ -1,0 +1,5 @@
+#!/bin/sh
+set -eu
+
+source_dir={{ .chezmoi.sourceDir | quote }}
+git -C "$source_dir" config --local core.hooksPath .githooks
