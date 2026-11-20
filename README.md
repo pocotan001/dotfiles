@@ -34,8 +34,8 @@ The repository owns the local `pr-address-comments` and
 directly in `~/.agents/skills`, with chezmoi-managed agent-specific links.
 Third-party skills come from `skills-lock.json` and are linked to both agents.
 Agency Agents is installed at the revision in
-`assets/agents/`, not from a moving branch. Ponytail is installed through the
-vendor CLIs.
+`assets/agents/`, not from a moving branch. pstack is installed as an official
+Claude Code plugin, and Ponytail is installed for Codex through its vendor CLI.
 
 After Ponytail is installed or updated, review its hooks in Codex with
 `/hooks`; hook trust is intentionally a per-machine decision.

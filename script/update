@@ -5,7 +5,7 @@ source_dir=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd -P)
 brew bundle upgrade --file "$source_dir/assets/Brewfile"
 (cd "$HOME" && mise exec -- npx skills update --project --yes)
 chezmoi add "$HOME/skills-lock.json"
-claude plugin update ponytail@ponytail
+claude plugin update pstack@cursor-plugins
 codex plugin marketplace upgrade ponytail
 codex plugin add ponytail@ponytail
 chezmoi apply

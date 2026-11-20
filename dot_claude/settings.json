@@ -172,8 +172,8 @@
   },
   "enabledPlugins": {
     "codex@openai-codex": true,
-    "ponytail@ponytail": true,
-    "figma@claude-plugins-official": true
+    "figma@claude-plugins-official": true,
+    "pstack@cursor-plugins": true
   },
   "extraKnownMarketplaces": {
     "openai-codex": {
@@ -182,22 +182,22 @@
         "repo": "openai/codex-plugin-cc"
       }
     },
-    "ponytail": {
-      "source": {
-        "source": "github",
-        "repo": "DietrichGebert/ponytail"
-      }
-    },
     "claude-plugins-official": {
       "source": {
         "source": "github",
         "repo": "anthropics/claude-plugins-official"
+      }
+    },
+    "cursor-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "cursor/plugins"
       }
     }
   },
   "effortLevel": "high",
   "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
-  "defaultMode": "auto",
-  "theme": "custom:orca"
+  "theme": "custom:orca",
+  "defaultMode": "auto"
 }
