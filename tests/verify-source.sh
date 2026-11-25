@@ -11,7 +11,9 @@ for file in \
   dot_config/zsh/dot_zshrc \
   dot_config/git/config \
   dot_claude/settings.json \
-  dot_codex/AGENTS.md \
+  dot_claude/CLAUDE.md \
+  dot_agents/AGENTS.md \
+  dot_codex/symlink_AGENTS.md \
   dot_codex/private_create_config.toml \
   skills-lock.json \
   dot_agents/skills/pr-address-comments/SKILL.md \
@@ -48,3 +50,5 @@ for agent in claude codex; do
     test "$(cat "$repo/dot_$agent/skills/symlink_$skill")" = "../../.agents/skills/$skill"
   done
 done
+test "$(cat "$repo/dot_claude/CLAUDE.md")" = "@~/.agents/AGENTS.md"
+test "$(cat "$repo/dot_codex/symlink_AGENTS.md")" = "../.agents/AGENTS.md"
